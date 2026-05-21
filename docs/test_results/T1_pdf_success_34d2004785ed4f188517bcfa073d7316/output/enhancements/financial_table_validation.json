@@ -1,0 +1,126 @@
+{
+  "table_elements": 6,
+  "numeric_token_count": 547,
+  "dense_numeric_chunk_count": 10,
+  "finance_keyword_hits": [
+    "total"
+  ],
+  "dense_numeric_chunks": [
+    {
+      "element_id": "2211_reduced_policy_optimization_fo:000007",
+      "page_idx": 0,
+      "type": "text",
+      "number_count": 8
+    },
+    {
+      "element_id": "2211_reduced_policy_optimization_fo:000010",
+      "page_idx": 1,
+      "type": "text",
+      "number_count": 8
+    },
+    {
+      "element_id": "2211_reduced_policy_optimization_fo:000011",
+      "page_idx": 1,
+      "type": "text",
+      "number_count": 8
+    },
+    {
+      "element_id": "2211_reduced_policy_optimization_fo:000017",
+      "page_idx": 1,
+      "type": "text",
+      "number_count": 18
+    },
+    {
+      "element_id": "2211_reduced_policy_optimization_fo:000020",
+      "page_idx": 2,
+      "type": "text",
+      "number_count": 8
+    },
+    {
+      "element_id": "2211_reduced_policy_optimization_fo:000023",
+      "page_idx": 2,
+      "type": "text",
+      "number_count": 9
+    },
+    {
+      "element_id": "2211_reduced_policy_optimization_fo:000105",
+      "page_idx": 9,
+      "type": "list",
+      "number_count": 49
+    },
+    {
+      "element_id": "2211_reduced_policy_optimization_fo:000107",
+      "page_idx": 10,
+      "type": "list",
+      "number_count": 73
+    },
+    {
+      "element_id": "2211_reduced_policy_optimization_fo:000109",
+      "page_idx": 11,
+      "type": "list",
+      "number_count": 68
+    },
+    {
+      "element_id": "2211_reduced_policy_optimization_fo:000243",
+      "page_idx": 23,
+      "type": "text",
+      "number_count": 10
+    }
+  ],
+  "total_line_candidates": [
+    "3) Optimal Power Flow with Battery Energy Storage. Optimal Power Flow (OPF) is a classical problem in smart grid operation to minimize the total cost of power generation with the satisfaction of grid demand. However, battery energy storage systems or electric vehicles have been integrated into smart grids to alleviate the fluctuations of renewable energy generation recently. As illustrated in [30, 36], we need to jointly optimize the charging or discharging of batteries with OPF for the long-term effect of the smart grid operation. According to this real-world application, we design this environment, which is possessed of nonlinear power flow balance equality constraints and inequality box constraints on the actions for feasibility."
+  ],
+  "suspicious_ocr_patterns": [],
+  "invalid_comma_numbers": [
+    "20,",
+    "52,",
+    "47,",
+    "4,",
+    "13,",
+    "14,",
+    "49,",
+    "25,",
+    "51,",
+    "26,",
+    "16,",
+    "29,",
+    "10,",
+    "33,",
+    "32,",
+    "13,",
+    "39,",
+    "25,",
+    "35,",
+    "45,",
+    "5,",
+    "47,",
+    "0,",
+    "0,",
+    "1,",
+    "0,",
+    "3,",
+    "3,",
+    "0,",
+    "0,",
+    "2,",
+    "1,",
+    "30,",
+    "428800,",
+    "10,",
+    "10,",
+    "47,",
+    "582,",
+    "13,",
+    "29,",
+    "620,",
+    "6120,",
+    "31,",
+    "53,",
+    "34,",
+    "4947,",
+    "320,",
+    "1232,",
+    "34,",
+    "2235,"
+  ]
+}

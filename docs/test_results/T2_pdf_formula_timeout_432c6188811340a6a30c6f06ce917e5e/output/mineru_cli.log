@@ -1,0 +1,97 @@
+$ D:\vscodepro\MinerU\.venv_mineru\Scripts\mineru.exe -p D:\vscodepro\MinerU\agent_data\jobs\432c6188811340a6a30c6f06ce917e5e\input\2211_reduced_policy_optimization_fo.pdf -o D:\vscodepro\MinerU\agent_data\jobs\432c6188811340a6a30c6f06ce917e5e\output -b pipeline -m auto -l ch -f true -t true --image-analysis true --start 0
+[data-agent] cwd=D:\vscodepro\MinerU
+[data-agent] mineru_pid=44460
+
+2026-05-21 12:59:21.936 | INFO     | mineru.cli.client:run_orchestrated_cli:877 - Started local mineru-api at http://127.0.0.1:18436
+2026-05-21 12:59:28.332 | INFO     | __main__:create_app:233 - Request concurrency limited to 3
+INFO:     Started server process [43404]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18436 (Press CTRL+C to quit)
+2026-05-21 12:59:28.575 | INFO     | mineru.cli.client:run_planned_task:773 - Submitting batch 1/1 | 1 document, 26 pages in this batch | 26 pages total | task#1 [2211_reduced_policy_optimization_fo]
+2026-05-21 12:59:37.237 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:183 - Pipeline processing-window multi-file run. doc_count=1, total_pages=26, window_size=64, total_batches=1
+2026-05-21 12:59:46.917 | INFO     | mineru.backend.pipeline.pipeline_analyze:doc_analyze_streaming:235 - Pipeline processing window batch 1/1: 26/26 pages, batch_pages=26, doc_slices=doc0:1-26
+2026-05-21 12:59:46.922 | INFO     | mineru.backend.pipeline.pipeline_analyze:batch_image_analyze:328 - GPU Memory: 1 GB, Batch Ratio: 1. 
+2026-05-21 12:59:46.922 | INFO     | mineru.backend.pipeline.model_init:__init__:214 - DocAnalysis init, this may take some times......
+2026-05-21 12:59:48,099 - modelscope - INFO - Creating symbolic link [C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0].
+2026-05-21 12:59:48,114 - modelscope - WARNING - Failed to create symbolic link C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0 for C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1___0.
+2026-05-21 12:59:50,242 - modelscope - INFO - Creating symbolic link [C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0].
+2026-05-21 12:59:50,242 - modelscope - WARNING - Failed to create symbolic link C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0 for C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1___0.
+2026-05-21 12:59:51,926 - modelscope - INFO - Creating symbolic link [C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0].
+2026-05-21 12:59:51,926 - modelscope - WARNING - Failed to create symbolic link C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0 for C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1___0.
+2026-05-21 12:59:52,964 - modelscope - INFO - Creating symbolic link [C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0].
+2026-05-21 12:59:52,965 - modelscope - WARNING - Failed to create symbolic link C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0 for C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1___0.
+2026-05-21 12:59:56,160 - modelscope - INFO - Creating symbolic link [C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0].
+2026-05-21 12:59:56,161 - modelscope - WARNING - Failed to create symbolic link C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0 for C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1___0.
+2026-05-21 12:59:57,215 - modelscope - INFO - Creating symbolic link [C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0].
+2026-05-21 12:59:57,216 - modelscope - WARNING - Failed to create symbolic link C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0 for C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1___0.
+2026-05-21 12:59:59,713 - modelscope - INFO - Creating symbolic link [C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0].
+2026-05-21 12:59:59,715 - modelscope - WARNING - Failed to create symbolic link C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0 for C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1___0.
+2026-05-21 13:00:01,026 - modelscope - INFO - Creating symbolic link [C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0].
+2026-05-21 13:00:01,027 - modelscope - WARNING - Failed to create symbolic link C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0 for C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1___0.
+2026-05-21 13:00:02,043 - modelscope - INFO - Creating symbolic link [C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0].
+2026-05-21 13:00:02,044 - modelscope - WARNING - Failed to create symbolic link C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0 for C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1___0.
+2026-05-21 13:00:03,189 - modelscope - INFO - Creating symbolic link [C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0].
+2026-05-21 13:00:03,190 - modelscope - WARNING - Failed to create symbolic link C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0 for C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1___0.
+2026-05-21 13:00:04,256 - modelscope - INFO - Creating symbolic link [C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0].
+2026-05-21 13:00:04,257 - modelscope - WARNING - Failed to create symbolic link C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0 for C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1___0.
+2026-05-21 13:00:05.281 | INFO     | mineru.backend.pipeline.model_init:__init__:266 - DocAnalysis init done!
+2026-05-21 13:00:05.283 | INFO     | mineru.backend.pipeline.pipeline_analyze:custom_model_init:83 - model init cost: 18.36116647720337
+Start MinerU FastAPI Service: http://127.0.0.1:18436
+API documentation: http://127.0.0.1:18436/docs
+Downloading Model from https://www.modelscope.cn to directory: C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0
+Downloading Model from https://www.modelscope.cn to directory: C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0
+Downloading Model from https://www.modelscope.cn to directory: C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0
+Downloading Model from https://www.modelscope.cn to directory: C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0
+Downloading Model from https://www.modelscope.cn to directory: C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0
+Downloading Model from https://www.modelscope.cn to directory: C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0
+Downloading Model from https://www.modelscope.cn to directory: C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0
+Downloading Model from https://www.modelscope.cn to directory: C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0
+Downloading Model from https://www.modelscope.cn to directory: C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0
+Downloading Model from https://www.modelscope.cn to directory: C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0
+Downloading Model from https://www.modelscope.cn to directory: C:\Users\yhy20010130\.cache\modelscope\hub\models\OpenDataLab\PDF-Extract-Kit-1.0
+
+Layout Predict:   0%|          | 0/26 [00:00<?, ?it/s]
+Layout Predict:   4%|��         | 1/26 [00:01<00:41,  1.68s/it]
+Layout Predict:   8%|��         | 2/26 [00:02<00:34,  1.46s/it]
+Layout Predict:  12%|����        | 3/26 [00:04<00:32,  1.39s/it]
+Layout Predict:  15%|����        | 4/26 [00:05<00:30,  1.41s/it]
+Layout Predict:  19%|����        | 5/26 [00:07<00:28,  1.36s/it]
+Layout Predict:  23%|������       | 6/26 [00:08<00:27,  1.36s/it]
+Layout Predict:  27%|������       | 7/26 [00:09<00:25,  1.36s/it]
+Layout Predict:  31%|������       | 8/26 [00:10<00:23,  1.33s/it]
+Layout Predict:  35%|��������      | 9/26 [00:12<00:22,  1.34s/it]
+Layout Predict:  38%|��������      | 10/26 [00:13<00:20,  1.31s/it]
+Layout Predict:  42%|����������     | 11/26 [00:14<00:19,  1.29s/it]
+Layout Predict:  46%|����������     | 12/26 [00:16<00:18,  1.30s/it]
+Layout Predict:  50%|����������     | 13/26 [00:17<00:16,  1.31s/it]
+Layout Predict:  54%|������������    | 14/26 [00:18<00:15,  1.28s/it]
+Layout Predict:  58%|������������    | 15/26 [00:19<00:14,  1.27s/it]
+Layout Predict:  62%|��������������   | 16/26 [00:21<00:12,  1.29s/it]
+Layout Predict:  65%|��������������   | 17/26 [00:22<00:11,  1.30s/it]
+Layout Predict:  69%|��������������   | 18/26 [00:23<00:10,  1.31s/it]
+Layout Predict:  73%|����������������  | 19/26 [00:25<00:09,  1.30s/it]
+Layout Predict:  77%|����������������  | 20/26 [00:26<00:07,  1.29s/it]
+Layout Predict:  81%|����������������  | 21/26 [00:27<00:06,  1.29s/it]
+Layout Predict:  85%|������������������ | 22/26 [00:29<00:05,  1.29s/it]
+Layout Predict:  88%|������������������ | 23/26 [00:30<00:03,  1.29s/it]
+Layout Predict:  92%|��������������������| 24/26 [00:31<00:02,  1.29s/it]
+Layout Predict:  96%|��������������������| 25/26 [00:32<00:01,  1.28s/it]
+Layout Predict: 100%|��������������������| 26/26 [00:34<00:00,  1.29s/it]
+Layout Predict: 100%|��������������������| 26/26 [00:34<00:00,  1.31s/it]
+
+MFR Predict:   0%|          | 0/315 [00:00<?, ?it/s]
+MFR Predict:   5%|��         | 16/315 [00:11<03:35,  1.39it/s]
+MFR Predict:  10%|��         | 32/315 [00:21<03:07,  1.51it/s]
+MFR Predict:  15%|����        | 48/315 [00:29<02:39,  1.67it/s]
+MFR Predict:  20%|����        | 64/315 [00:39<02:31,  1.65it/s]
+MFR Predict:  25%|������       | 80/315 [00:49<02:24,  1.63it/s]
+MFR Predict:  30%|������       | 96/315 [00:58<02:08,  1.70it/s]
+MFR Predict:  36%|��������      | 112/315 [01:06<01:56,  1.75it/s]
+MFR Predict:  41%|��������      | 128/315 [01:15<01:44,  1.80it/s]
+MFR Predict:  46%|����������     | 144/315 [01:23<01:33,  1.82it/s]
+MFR Predict:  51%|����������     | 160/315 [01:33<01:27,  1.77it/s]
+MFR Predict:  56%|������������    | 176/315 [01:42<01:19,  1.75it/s]
+MFR Predict:  61%|������������    | 192/315 [01:53<01:14,  1.66it/s]
+MFR Predict:  66%|��������������   | 208/315 [02:06<01:10,  1.52it/s]
+MFR Predict:  71%|��������������   | 224/315 [02:17<01:01,  1.48it/s]

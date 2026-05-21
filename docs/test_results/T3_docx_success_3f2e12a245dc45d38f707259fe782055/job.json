@@ -1,0 +1,421 @@
+{
+  "job_id": "3f2e12a245dc45d38f707259fe782055",
+  "status": "succeeded",
+  "created_at": "2026-05-21T04:43:55.802839Z",
+  "updated_at": "2026-05-21T04:45:02.368933Z",
+  "input_filename": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version.docx",
+  "input_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\input\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version.docx",
+  "output_dir": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output",
+  "options": {
+    "backend": "pipeline",
+    "method": "auto",
+    "lang": "ch",
+    "formula": true,
+    "table": true,
+    "image_analysis": true,
+    "model_source": "modelscope",
+    "use_llm": true,
+    "api_url": null,
+    "server_url": null,
+    "start_page": 0,
+    "end_page": null
+  },
+  "logs": [
+    {
+      "time": "2026-05-21T04:43:55.830929Z",
+      "stage": "understand",
+      "level": "info",
+      "message": "Task received and input validation completed.",
+      "details": {
+        "filename": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version.docx",
+        "input_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\input\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version.docx"
+      }
+    },
+    {
+      "time": "2026-05-21T04:43:55.844883Z",
+      "stage": "plan",
+      "level": "info",
+      "message": "Calling the LLM planner.",
+      "details": {}
+    },
+    {
+      "time": "2026-05-21T04:44:03.682672Z",
+      "stage": "plan",
+      "level": "info",
+      "message": "Execution plan generated.",
+      "details": {
+        "plan": {
+          "goal": "Parse the document into Markdown and normalized structured JSON chunks.",
+          "steps": [
+            "Validate input type and create a task workspace.",
+            "Call MinerU with the selected backend and parsing options.",
+            "Collect Markdown, content_list, middle_json, images, and metadata.",
+            "Normalize parsed elements into JSONL chunks.",
+            "Verify output completeness and generate a reproducible processing log."
+          ],
+          "risk_controls": [
+            "Keep original MinerU outputs for auditability.",
+            "Return file paths and element counts for downstream validation.",
+            "Surface parser warnings in task logs."
+          ]
+        }
+      }
+    },
+    {
+      "time": "2026-05-21T04:44:03.696338Z",
+      "stage": "execute",
+      "level": "info",
+      "message": "Calling the MinerU structured parsing module.",
+      "details": {
+        "command": [
+          "D:\\vscodepro\\MinerU\\.venv_mineru\\Scripts\\mineru.exe",
+          "-p",
+          "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\input\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version.docx",
+          "-o",
+          "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output",
+          "-b",
+          "pipeline",
+          "-m",
+          "auto",
+          "-l",
+          "ch",
+          "-f",
+          "true",
+          "-t",
+          "true",
+          "--image-analysis",
+          "true",
+          "--start",
+          "0"
+        ]
+      }
+    },
+    {
+      "time": "2026-05-21T04:44:56.456837Z",
+      "stage": "execute",
+      "level": "info",
+      "message": "MinerU execution finished.",
+      "details": {
+        "returncode": 0,
+        "output_tail": "2026-05-21 12:44:10.526 | INFO     | mineru.cli.client:run_orchestrated_cli:877 - Started local mineru-api at http://127.0.0.1:25891\n2026-05-21 12:44:17.604 | INFO     | __main__:create_app:233 - Request concurrency limited to 3\nINFO:     Started server process [44748]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:25891 (Press CTRL+C to quit)\n2026-05-21 12:44:18.170 | INFO     | mineru.cli.client:run_planned_task:773 - Submitting batch 1/1 | 1 document, 1 page in this batch | 1 page total | task#1 [ģ�ͺ����������������ۺ���Դϵͳʵʱ����12_12_final_submitted_version]\n2026-05-21 12:44:43.388 | WARNING  | mineru.cli.common:do_parse:659 - No valid PDF or image files to process.\n2026-05-21 12:44:44.619 | INFO     | mineru.cli.client:run_planned_task:809 - Completed batch 1/1 | Processed 1/1 page | 1 of 1 batch finished | task#1 [ģ�ͺ����������������ۺ���Դϵͳʵʱ����12_12_final_submitted_version]\n2026-05-21 12:44:45.125 | WARNING  | mineru.cli.client:log_visualization_future_result:390 - Skipping visualization for ģ�ͺ����������������ۺ���Դϵͳʵʱ����12_12_final_submitted_version: missing origin.pdf: ģ�ͺ����������������ۺ���Դϵͳʵʱ����12_12_final_submitted_version_origin.pdf\n"
+      }
+    },
+    {
+      "time": "2026-05-21T04:44:56.470600Z",
+      "stage": "structure",
+      "level": "info",
+      "message": "Aggregating Markdown, JSON, and element-level JSONL outputs.",
+      "details": {}
+    },
+    {
+      "time": "2026-05-21T04:44:56.545492Z",
+      "stage": "structure",
+      "level": "info",
+      "message": "Structured outputs generated.",
+      "details": {
+        "manifest_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\structured_manifest.json",
+        "chunks_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\structured_chunks.jsonl",
+        "summary": {
+          "documents": 1,
+          "chunks": 334
+        }
+      }
+    },
+    {
+      "time": "2026-05-21T04:44:56.558755Z",
+      "stage": "verify",
+      "level": "info",
+      "message": "Calling the LLM quality reviewer.",
+      "details": {}
+    },
+    {
+      "time": "2026-05-21T04:45:02.346630Z",
+      "stage": "verify",
+      "level": "info",
+      "message": "Quality review completed.",
+      "details": {
+        "quality_report": {
+          "verdict": "partial",
+          "checks": [
+            {
+              "name": "document_count",
+              "status": "pass",
+              "message": "Document count matches expected: 1 document."
+            },
+            {
+              "name": "chunk_count",
+              "status": "pass",
+              "message": "Chunk count matches expected: 334 chunks."
+            },
+            {
+              "name": "content_completeness",
+              "status": "partial",
+              "message": "Content preview shows partial text with abrupt ending, suggesting incomplete parsing or truncated content."
+            },
+            {
+              "name": "media_elements",
+              "status": "pass",
+              "message": "Media elements (7 images) are present as expected."
+            },
+            {
+              "name": "markdown_and_json_paths",
+              "status": "pass",
+              "message": "Expected paths for markdown and JSON files are provided."
+            }
+          ],
+          "suggestions": [
+            "Verify full content extraction from source document to ensure no truncation.",
+            "Check parsing logs or error reports for failures causing incomplete text capture.",
+            "Confirm presence and correctness of reference citation links and formatting.",
+            "Ensure all 334 chunks are properly linked and assembled into coherent document structure."
+          ]
+        }
+      }
+    }
+  ],
+  "result": {
+    "job_id": "3f2e12a245dc45d38f707259fe782055",
+    "status": "succeeded",
+    "plan": {
+      "goal": "Parse the document into Markdown and normalized structured JSON chunks.",
+      "steps": [
+        "Validate input type and create a task workspace.",
+        "Call MinerU with the selected backend and parsing options.",
+        "Collect Markdown, content_list, middle_json, images, and metadata.",
+        "Normalize parsed elements into JSONL chunks.",
+        "Verify output completeness and generate a reproducible processing log."
+      ],
+      "risk_controls": [
+        "Keep original MinerU outputs for auditability.",
+        "Return file paths and element counts for downstream validation.",
+        "Surface parser warnings in task logs."
+      ]
+    },
+    "quality_report": {
+      "verdict": "partial",
+      "checks": [
+        {
+          "name": "document_count",
+          "status": "pass",
+          "message": "Document count matches expected: 1 document."
+        },
+        {
+          "name": "chunk_count",
+          "status": "pass",
+          "message": "Chunk count matches expected: 334 chunks."
+        },
+        {
+          "name": "content_completeness",
+          "status": "partial",
+          "message": "Content preview shows partial text with abrupt ending, suggesting incomplete parsing or truncated content."
+        },
+        {
+          "name": "media_elements",
+          "status": "pass",
+          "message": "Media elements (7 images) are present as expected."
+        },
+        {
+          "name": "markdown_and_json_paths",
+          "status": "pass",
+          "message": "Expected paths for markdown and JSON files are provided."
+        }
+      ],
+      "suggestions": [
+        "Verify full content extraction from source document to ensure no truncation.",
+        "Check parsing logs or error reports for failures causing incomplete text capture.",
+        "Confirm presence and correctness of reference citation links and formatting.",
+        "Ensure all 334 chunks are properly linked and assembled into coherent document structure."
+      ]
+    },
+    "manifest_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\structured_manifest.json",
+    "chunks_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\structured_chunks.jsonl",
+    "manifest": {
+      "generated_at": "2026-05-21T04:44:56.503667+00:00",
+      "input": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\input\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version.docx",
+      "output_dir": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output",
+      "mineru_command": [
+        "D:\\vscodepro\\MinerU\\.venv_mineru\\Scripts\\mineru.exe",
+        "-p",
+        "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\input\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version.docx",
+        "-o",
+        "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output",
+        "-b",
+        "pipeline",
+        "-m",
+        "auto",
+        "-l",
+        "ch",
+        "-f",
+        "true",
+        "-t",
+        "true",
+        "--image-analysis",
+        "true",
+        "--start",
+        "0"
+      ],
+      "backend": "pipeline",
+      "method": "auto",
+      "lang": "ch",
+      "documents": [
+        {
+          "document": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version",
+          "parse_dir": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office",
+          "markdown_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version.md",
+          "content_list_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version_content_list.json",
+          "content_list_v2_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version_content_list_v2.json",
+          "middle_json_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version_middle.json",
+          "model_json_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version_model.json",
+          "images": [
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\images\\1b8ab49b02d20bdc7e4c15f571ef3029ebfb7979d7fd613b2012ef79e6506476.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\images\\4f456b00bf90d7b75fa6e0550ae2049395108bb3d46fe0f8acadfdd0fee5483b.png",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\images\\62febe26ddf1bb2831283d050c9c34bb145bda4112b93bfd0f4272ea74191cea.png",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\images\\7f8b9985d38d2202d49e4f82c66d6b3cf7b3d2809bd8037af7d3ad58c6e0d670.png",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\images\\928a63b6c98deb487a6d32e5754cfa42047b080fadc8c6b4d814b8cd682466f4.png",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\images\\ba42259ebd8f017a0fd8c70afa8cbdab834f7e0d2f21099344d60f1f8f7e2135.png",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\3f2e12a245dc45d38f707259fe782055\\output\\模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version\\office\\images\\ef43a3e2f877657bf58a225d9537913cba6e8b6d57dc9f6253d760d506651ec2.jpg"
+          ],
+          "summary": {
+            "elements": 334,
+            "by_type": {
+              "footer": 1,
+              "image": 7,
+              "list": 22,
+              "text": 304
+            },
+            "text_elements": 328,
+            "media_elements": 7
+          },
+          "markdown_preview": "**人工智能赋能工程科学前沿探索:**\n\n**高维强非线性复杂工程系统智能分析与优化决策理论**\n\n**报告正文**\n\n参照以下提纲撰写，要求内容翔实、清晰，层次分明，主题突出。**请勿删除或改动下述提纲标题及括号中的文字。**\n\n**（一）立项依据与研究内容**（**建议8000字以下**）：\n\n1．**项目的立项依据**（研究意义、国内外研究现状及发展动态分析，需结合科学研究发展趋势来论述科学意义；或结合国家经济社会发展中迫切需要解决以及重大突发事件中涉及的关键科学问题来论述其应用前景。附主要参考文献目录）；\n\n**1.1 研究背景和意义**\n\n随着全球能源转型的加速和碳中和目标的提出，综合能源系统的运行与规划面临前所未有的机遇与挑战[1][2]。传统电力系统主要聚焦于解决交流最优潮流（ACOPF）问题，这是一个典型的非凸问题，本身求解就颇具挑战。而综合能源系统不仅包括了传统的电力系统元素，还引入了分布式发电、储能设备、电动汽车、可控负载等多种类型的设备[3]，这使得求解问题的复杂度和难度进一步增加。这种多能源耦合、多设备协同的特性使得决策变量的数量和复杂性显著增加。决**策任务不仅涵盖能源的生产、传输、分配，还涉及跨能量形式的转换与优化，形成了一个多维、多目标、多时间尺度的高复杂性优化问题。** 首先，在碳中和背景下，可再生能源（如风能、太阳能）的大规模接入[4], [5] 进一步增加了系统运行的随机性和不确定性，使得能源供需平衡问题更加复杂。综合能源系统中的多个设备之间（如储能、电动汽车等）具有强耦合特性，他们各自的运行状态不仅受到多种约束（如容量限制、放电效率、老化特性等）的影响，而且必须在不断变化的环境中（如气候条件变化、用户需求波动等）进行动态调整，以适应可再生能源的不稳定输入。这些动态行为都需要在优化模型中进行精准建模。传统基于确定性预测的优化模型难以应对动态变化的运行环境，这对优化算法的表达能力和求解效率提出了更高要求。此外，综合能源系统的运行需要同时满足多目标优化需求[6], [7]，在追求经济性最优的同时，还需要确保系统运行的安全性和鲁棒性，避免因设备故障或外界扰动引发的连锁反应。特别的是，在极端气候事件或自然灾害等非正常工况下，如何通过鲁棒优化与动态响应策略保持系统的稳定运行，成为亟待解决的问题。再者，随着系统的扩展性和灵活性需求不断提高，不同的决策任务往往需要基于不同的优化模板（如单时段优化[8]、滚动时域优化[9]、分布式优化[10]等）进行建模和求解。例如，在短时间尺度上，实时调度优化需要快速响应负荷波动和设备状态变化；而在长时间尺度上，系统规划优化则需要考虑基础设施投资和资源配置的最优方案。这些优化模板需要能够灵活适应不同的时间尺度和空间维度，同时高效解决实际运行中可能存在的不确定性、非线性、非凸性等难题。**综上所述，综合能源系统决策任务的复杂性主要体现在以下几个方面：多元设备协同、优化目标多元化、以及问题的时空动态性。** 为应对这些挑战，亟需开发基于先进优化理论和人工智能技术的新方法，以实现高效、鲁棒的综合能源系统实时控制。这不仅对保障系统的经济性与安全性至关重要，也为全球碳中和目标的实现提供了关键技术支持。\n\n面临能源危机与环境污染的双重挑战，电动汽车近年来经历了快速发展。据2022年数据，全球电动汽车销量达到1082.4万辆，其中中国市场销量为688.4万辆，占全球总销量的63.6%。然而，电动汽车市场的扩张对现有电网系统构成了潜在挑战，未经管理的充电活动可能引发电网电压波动、增加峰值负荷与功率损失[4][5] [6][7]。此外，考虑到电动汽车动力电池的充放电特性，其可作为电网的潜在储能设施，合理利用可实现削峰填谷，稳定电网系统，降低运营成本并减少空气污染排放，因此，研究电动汽车与智能电网能量互动的协同控制（车网协同）显得尤为重要[8][9][10]。**在电动汽车与智能电网的能量互动中，多时空尺度问题是一个关键挑战**。多尺度指的是在不同的时间和空间尺度上，系统的动态行为和优化需求可能会显著变化。这种多尺度特性要求在制定优化策略时，必须同时兼顾短期的动态响应和长期的系统稳定性。在时间尺度上，电动汽车的充放电需求和新能源的发电量可能在短时间内发生剧烈变化，而电网的整体规划和基础设施调整则需要在较长时间尺度上进行考虑。在空间尺度上，电动汽车的充电行为可能集中在特定区域，导致局部电网负载不均衡，而全局电网的运行优化又需要协调多个区域的能源分配。因此，**研究如何在多时空尺度上有效地进行车网协同控制，确保电网的稳定性和效率，是当前亟待解决的问题**。这需要开发能够在不同尺度上灵活调整的算法，以适应复杂的动态环境和不确定性。\n\n电网拓扑的变化是电力系统运行中不可忽视的复杂挑战。现代电网由高度"
+        }
+      ],
+      "summary": {
+        "documents": 1,
+        "chunks": 334
+      }
+    },
+    "chunks_preview": [
+      {
+        "document": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version",
+        "element_id": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version:000000",
+        "element_index": 0,
+        "type": "text",
+        "page_idx": 0,
+        "text": "**人工智能赋能工程科学前沿探索:**",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "**人工智能赋能工程科学前沿探索:**",
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version",
+        "element_id": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version:000001",
+        "element_index": 1,
+        "type": "text",
+        "page_idx": 0,
+        "text": "**高维强非线性复杂工程系统智能分析与优化决策理论**",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "**高维强非线性复杂工程系统智能分析与优化决策理论**",
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version",
+        "element_id": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version:000002",
+        "element_index": 2,
+        "type": "text",
+        "page_idx": 0,
+        "text": "**报告正文**",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "**报告正文**",
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version",
+        "element_id": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version:000003",
+        "element_index": 3,
+        "type": "text",
+        "page_idx": 0,
+        "text": "参照以下提纲撰写，要求内容翔实、清晰，层次分明，主题突出。**请勿删除或改动下述提纲标题及括号中的文字。**",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "参照以下提纲撰写，要求内容翔实、清晰，层次分明，主题突出。**请勿删除或改动下述提纲标题及括号中的文字。**",
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version",
+        "element_id": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version:000004",
+        "element_index": 4,
+        "type": "text",
+        "page_idx": 0,
+        "text": "**（一）立项依据与研究内容**（**建议8000字以下**）：",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "**（一）立项依据与研究内容**（**建议8000字以下**）：",
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version",
+        "element_id": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version:000005",
+        "element_index": 5,
+        "type": "text",
+        "page_idx": 0,
+        "text": "1．**项目的立项依据**（研究意义、国内外研究现状及发展动态分析，需结合科学研究发展趋势来论述科学意义；或结合国家经济社会发展中迫切需要解决以及重大突发事件中涉及的关键科学问题来论述其应用前景。附主要参考文献目录）；",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "1．**项目的立项依据**（研究意义、国内外研究现状及发展动态分析，需结合科学研究发展趋势来论述科学意义；或结合国家经济社会发展中迫切需要解决以及重大突发事件中涉及的关键科学问题来论述其应用前景。附主要参考文献目录）；",
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version",
+        "element_id": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version:000006",
+        "element_index": 6,
+        "type": "text",
+        "page_idx": 0,
+        "text": "**1.1 研究背景和意义**",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "**1.1 研究背景和意义**",
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version",
+        "element_id": "模型和数据联合驱动的综合能源系统实时控制12_12_final_submitted_version:000007",
+        "element_index": 7,
+        "type": "text",
+        "page_idx": 0,
+        "text": "随着全球能源转型的加速和碳中和目标的提出，综合能源系统的运行与规划面临前所未有的机遇与挑战[1][2]。传统电力系统主要聚焦于解决交流最优潮流（ACOPF）问题，这是一个典型的非凸问题，本身求解就颇具挑战。而综合能源系统不仅包括了传统的电力系统元素，还引入了分布式发电、储能设备、电动汽车、可控负载等多种类型的设备[3]，这使得求解问题的复杂度和难度进一步增加。这种多能源耦合、多设备协同的特性使得决策变量的数量和复杂性显著增加。决**策任务不仅涵盖能源的生产、传输、分配，还涉及跨能量形式的转换与优化，形成了一个多维、多目标、多时间尺度的高复杂性优化问题。** 首先，在碳中和背景下，可再生能源（如风能、太阳能）的大规模接入[4], [5] 进一步增加了系统运行的随机性和不确定性，使得能源供需平衡问题更加复杂。综合能源系统中的多个设备之间（如储能、电动汽车等）具有强耦合特性，他们各自的运行状态不仅受到多种约束（如容量限制、放电效率、老化特性等）的影响，而且必须在不断变化的环境中（如气候条件变化、用户需求波动等）进行动态调整，以适应可再生能源的不稳定输入。这些动态行为都需要在优化模型中进行精准建模。传统基于确定性预测的优化模型难以应对动态变化的运行环境，这对优化算法的表达能力和求解效率提出了更高要求。此外，综合能源系统的运行需要同时满足多目标优化需求[6], [7]，在追求经济性最优的同时，还需要确保系统运行的安全性和鲁棒性，避免因设备故障或外界扰动引发的连锁反应。特别的是，在极端气候事件或自然灾害等非正常工况下，如何通过鲁棒优化与动态响应策略保持系统的稳定运行，成为亟待解决的问题。再者，随着系统的扩展性和灵活性需求不断提高，不同的决策任务往往需要基于不同的优化模板（如单时段优化[8]、滚动时域优化[9]、分布式优化[10]等）进行建模和求解。例如，在短时间尺度上，实时调度优化需要快速响应负荷波动和设备状态变化；而在长时间尺度上，系统规划优化则需要考虑基础设施投资和资源配置的最优方案。这些优化模板需要能够灵活适应不同的时间尺度和空间维度，同时高效解决实际运行中可能存在的不确定性、非线性、非凸性等难题。**综上所述，综合能源系统决策任务的复杂性主要体现在以下几个方面：多元设备协同、优化目标多元化、以及问题的时空动态性。** 为应对这些挑战，亟需开发基于先进优化理论和人工智能技术的新方法，以实现高效、鲁棒的综合能源系统实时控制。这不仅对保障系统的经济性与安全性至关重要，也为全球碳中和目标的实现提供了关键技术支持。",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "随着全球能源转型的加速和碳中和目标的提出，综合能源系统的运行与规划面临前所未有的机遇与挑战[1][2]。传统电力系统主要聚焦于解决交流最优潮流（ACOPF）问题，这是一个典型的非凸问题，本身求解就颇具挑战。而综合能源系统不仅包括了传统的电力系统元素，还引入了分布式发电、储能设备、电动汽车、可控负载等多种类型的设备[3]，这使得求解问题的复杂度和难度进一步增加。这种多能源耦合、多设备协同的特性使得决策变量的数量和复杂性显著增加。决**策任务不仅涵盖能源的生产、传输、分配，还涉及跨能量形式的转换与优化，形成了一个多维、多目标、多时间尺度的高复杂性优化问题。** 首先，在碳中和背景下，可再生能源（如风能、太阳能）的大规模接入[4], [5] 进一步增加了系统运行的随机性和不确定性，使得能源供需平衡问题更加复杂。综合能源系统中的多个设备之间（如储能、电动汽车等）具有强耦合特性，他们各自的运行状态不仅受到多种约束（如容量限制、放电效率、老化特性等）的影响，而且必须在不断变化的环境中（如气候条件变化、用户需求波动等）进行动态调整，以适应可再生能源的不稳定输入。这些动态行为都需要在优化模型中进行精准建模。传统基于确定性预测的优化模型难以应对动态变化的运行环境，这对优化算法的表达能力和求解效率提出了更高要求。此外，综合能源系统的运行需要同时满足多目标优化需求[6], [7]，在追求经济性最优的同时，还需要确保系统运行的安全性和鲁棒性，避免因设备故障或外界扰动引发的连锁反应。特别的是，在极端气候事件或自然灾害等非正常工况下，如何通过鲁棒优化与动态响应策略保持系统的稳定运行，成为亟待解决的问题。再者，随着系统的扩展性和灵活性需求不断提高，不同的决策任务往往需要基于不同的优化模板（如单时段优化[8]、滚动时域优化[9]、分布式优化[10]等）进行建模和求解。例如，在短时间尺度上，实时调度优化需要快速响应负荷波动和设备状态变化；而在长时间尺度上，系统规划优化则需要考虑基础设施投资和资源配置的最优方案。这些优化模板需要能够灵活适应不同的时间尺度和空间维度，同时高效解决实际运行中可能存在的不确定性、非线性、非凸性等难题。**综上所述，综合能源系统决策任务的复杂性主要体现在以下几个方面：多元设备协同、优化目标多元化、以及问题的时空动态性。** 为应对这些挑战，亟需开发基于先进优化理论和人工智能技术的新方法，以实现高效、鲁棒的综合能源系统实时控制。这不仅对保障系统的经济性与安全性至关重要，也为全球碳中和目标的实现提供了关键技术支持。",
+          "page_idx": 0
+        }
+      }
+    ]
+  },
+  "error": null
+}

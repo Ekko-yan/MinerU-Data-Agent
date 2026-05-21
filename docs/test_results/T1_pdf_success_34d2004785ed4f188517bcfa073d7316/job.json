@@ -1,0 +1,565 @@
+{
+  "job_id": "34d2004785ed4f188517bcfa073d7316",
+  "status": "succeeded",
+  "created_at": "2026-05-21T05:32:24.959521Z",
+  "updated_at": "2026-05-21T05:34:28.080533Z",
+  "input_filename": "2211_reduced_policy_optimization_fo.pdf",
+  "input_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\input\\2211_reduced_policy_optimization_fo.pdf",
+  "output_dir": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output",
+  "options": {
+    "backend": "pipeline",
+    "method": "auto",
+    "lang": "ch",
+    "formula": false,
+    "table": false,
+    "image_analysis": true,
+    "model_source": "modelscope",
+    "use_llm": true,
+    "api_url": null,
+    "server_url": null,
+    "start_page": 0,
+    "end_page": null
+  },
+  "logs": [
+    {
+      "time": "2026-05-21T05:32:24.974206Z",
+      "stage": "queue",
+      "level": "info",
+      "message": "Task queued and waiting for an available MinerU worker.",
+      "details": {}
+    },
+    {
+      "time": "2026-05-21T05:32:25.008859Z",
+      "stage": "understand",
+      "level": "info",
+      "message": "Task received and input validation completed.",
+      "details": {
+        "filename": "2211_reduced_policy_optimization_fo.pdf",
+        "input_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\input\\2211_reduced_policy_optimization_fo.pdf"
+      }
+    },
+    {
+      "time": "2026-05-21T05:32:25.024072Z",
+      "stage": "plan",
+      "level": "info",
+      "message": "Calling the LLM planner.",
+      "details": {}
+    },
+    {
+      "time": "2026-05-21T05:32:32.169912Z",
+      "stage": "plan",
+      "level": "info",
+      "message": "Execution plan generated.",
+      "details": {
+        "plan": {
+          "goal": "Parse the document into Markdown and normalized structured JSON chunks.",
+          "steps": [
+            "Validate input type and create a task workspace.",
+            "Call MinerU with the selected backend and parsing options.",
+            "Collect Markdown, content_list, middle_json, images, and metadata.",
+            "Normalize parsed elements into JSONL chunks.",
+            "Verify output completeness and generate a reproducible processing log."
+          ],
+          "risk_controls": [
+            "Keep original MinerU outputs for auditability.",
+            "Return file paths and element counts for downstream validation.",
+            "Surface parser warnings in task logs."
+          ]
+        }
+      }
+    },
+    {
+      "time": "2026-05-21T05:32:32.187666Z",
+      "stage": "execute",
+      "level": "info",
+      "message": "Calling the MinerU structured parsing module.",
+      "details": {
+        "command": [
+          "D:\\vscodepro\\MinerU\\.venv_mineru\\Scripts\\mineru.exe",
+          "-p",
+          "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\input\\2211_reduced_policy_optimization_fo.pdf",
+          "-o",
+          "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output",
+          "-b",
+          "pipeline",
+          "-m",
+          "auto",
+          "-l",
+          "ch",
+          "-f",
+          "false",
+          "-t",
+          "false",
+          "--image-analysis",
+          "true",
+          "--start",
+          "0"
+        ]
+      }
+    },
+    {
+      "time": "2026-05-21T05:34:20.419511Z",
+      "stage": "structure",
+      "level": "info",
+      "message": "Aggregating Markdown, JSON, and element-level JSONL outputs.",
+      "details": {}
+    },
+    {
+      "time": "2026-05-21T05:34:20.548720Z",
+      "stage": "structure",
+      "level": "info",
+      "message": "Structured outputs generated.",
+      "details": {
+        "manifest_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\structured_manifest.json",
+        "chunks_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\structured_chunks.jsonl",
+        "summary": {
+          "documents": 1,
+          "chunks": 272
+        }
+      }
+    },
+    {
+      "time": "2026-05-21T05:34:20.562086Z",
+      "stage": "verify",
+      "level": "info",
+      "message": "Calling the LLM quality reviewer.",
+      "details": {}
+    },
+    {
+      "time": "2026-05-21T05:34:28.063350Z",
+      "stage": "verify",
+      "level": "info",
+      "message": "Quality review completed.",
+      "details": {
+        "quality_report": {
+          "verdict": "partial",
+          "checks": [
+            {
+              "name": "document_count",
+              "status": "pass",
+              "message": "The manifest indicates 1 document, which matches the provided document list."
+            },
+            {
+              "name": "chunk_count",
+              "status": "pass",
+              "message": "The manifest indicates 272 chunks; the sample chunk preview is consistent with chunk metadata."
+            },
+            {
+              "name": "chunk_coverage",
+              "status": "partial",
+              "message": "Only a small preview of chunks is provided. Unable to verify completeness of all 272 chunks from the preview."
+            },
+            {
+              "name": "content_integrity",
+              "status": "partial",
+              "message": "The provided text excerpts appear coherent and consistent with the document content, but the last chunk preview is truncated, indicating incomplete data."
+            },
+            {
+              "name": "metadata_consistency",
+              "status": "pass",
+              "message": "Document paths and related metadata fields are consistent and appear complete."
+            }
+          ],
+          "suggestions": [
+            "Provide full chunk data or a summary coverage report to verify completeness of all 272 chunks.",
+            "Ensure that chunk text previews are not truncated to confirm full data integrity.",
+            "Include validation of content_list and model_json files to ensure no data loss or parse errors."
+          ]
+        }
+      }
+    }
+  ],
+  "result": {
+    "job_id": "34d2004785ed4f188517bcfa073d7316",
+    "status": "succeeded",
+    "plan": {
+      "goal": "Parse the document into Markdown and normalized structured JSON chunks.",
+      "steps": [
+        "Validate input type and create a task workspace.",
+        "Call MinerU with the selected backend and parsing options.",
+        "Collect Markdown, content_list, middle_json, images, and metadata.",
+        "Normalize parsed elements into JSONL chunks.",
+        "Verify output completeness and generate a reproducible processing log."
+      ],
+      "risk_controls": [
+        "Keep original MinerU outputs for auditability.",
+        "Return file paths and element counts for downstream validation.",
+        "Surface parser warnings in task logs."
+      ]
+    },
+    "quality_report": {
+      "verdict": "partial",
+      "checks": [
+        {
+          "name": "document_count",
+          "status": "pass",
+          "message": "The manifest indicates 1 document, which matches the provided document list."
+        },
+        {
+          "name": "chunk_count",
+          "status": "pass",
+          "message": "The manifest indicates 272 chunks; the sample chunk preview is consistent with chunk metadata."
+        },
+        {
+          "name": "chunk_coverage",
+          "status": "partial",
+          "message": "Only a small preview of chunks is provided. Unable to verify completeness of all 272 chunks from the preview."
+        },
+        {
+          "name": "content_integrity",
+          "status": "partial",
+          "message": "The provided text excerpts appear coherent and consistent with the document content, but the last chunk preview is truncated, indicating incomplete data."
+        },
+        {
+          "name": "metadata_consistency",
+          "status": "pass",
+          "message": "Document paths and related metadata fields are consistent and appear complete."
+        }
+      ],
+      "suggestions": [
+        "Provide full chunk data or a summary coverage report to verify completeness of all 272 chunks.",
+        "Ensure that chunk text previews are not truncated to confirm full data integrity.",
+        "Include validation of content_list and model_json files to ensure no data loss or parse errors."
+      ]
+    },
+    "manifest_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\structured_manifest.json",
+    "chunks_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\structured_chunks.jsonl",
+    "manifest": {
+      "generated_at": "2026-05-21T05:34:20.495472+00:00",
+      "input": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\input\\2211_reduced_policy_optimization_fo.pdf",
+      "output_dir": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output",
+      "mineru_command": [
+        "D:\\vscodepro\\MinerU\\.venv_mineru\\Scripts\\mineru.exe",
+        "-p",
+        "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\input\\2211_reduced_policy_optimization_fo.pdf",
+        "-o",
+        "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output",
+        "-b",
+        "pipeline",
+        "-m",
+        "auto",
+        "-l",
+        "ch",
+        "-f",
+        "false",
+        "-t",
+        "false",
+        "--image-analysis",
+        "true",
+        "--start",
+        "0"
+      ],
+      "backend": "pipeline",
+      "method": "auto",
+      "lang": "ch",
+      "documents": [
+        {
+          "document": "2211_reduced_policy_optimization_fo",
+          "parse_dir": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto",
+          "markdown_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\2211_reduced_policy_optimization_fo.md",
+          "content_list_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\2211_reduced_policy_optimization_fo_content_list.json",
+          "content_list_v2_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\2211_reduced_policy_optimization_fo_content_list_v2.json",
+          "middle_json_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\2211_reduced_policy_optimization_fo_middle.json",
+          "model_json_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\2211_reduced_policy_optimization_fo_model.json",
+          "images": [
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\06d5399c22d9460eadaa63b9c44e5dccd96415f58a39f3f5edb7e0f1a950b4cf.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\076def884b3d47c9915bd4bf873cc20b2ad228f14747d5d2ed3b765deab0e53b.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\08f709b3a8a98c93c33c7aef27cbab4c3868d09085e30bf29dfe24603ddc0a8d.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\0bbffccf1f74d5184ac7073e3fcdd612d4d258e65c51760d36430e550a8a7fc6.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\1137c2c2e517b0d6335ae2dc19c78bbf48f578a4643775a5c5f9129a342cec11.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\19cffeb7a60bd6bf393d26c54b4a5816266b542d642993ae47a82267e335a55f.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\211e73d23815c6d3a60f36bd69733e2093d36ffc66117e5e1f5f61314c64beb8.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\272f553563443c513ebbca37ceee7574e46073fe7aa6be5f9285ba508a2047ba.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\27dda3331c3323a4479843a32d1a5f671a0a4dff3d11f262d73f288319c41901.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\298e339324decf166c2baddf23b9727cabf1fac32abf7f149304d88c6b7dffaa.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\329904c9c3dc8971fb21877586ab8ee65ceed4cfac26c3857fd897070262cf89.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\32bd83a3d20d750bbad73348c99f6a878b23cf6c525b911da6728301c99b9348.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\346fdbb8f65047e384c4182f0972df29f5a02bb75d8616a99fa0b956b4cbc13b.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\39e2cff04f6a2450f70cf23570ab60a68e24643c285ff47e777915c62fb72ae5.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\490bf53f96dcf343e6fb657f8941c9922b535e4cf8621b9c5a56411841246b30.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\4a5eedcb430fde51963607ac10357ce6a4b26e284640c6729352d06f33cf70db.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\511322f03a202a14a720963ba8bcfe9c88dbe81b04f7c3bec6752e0f22f8bf49.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\51ca8bbd6b1080e1d2c5da0ceb264beffff5592be9d9b074dc1ee361818525e6.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\5422b137e240e882b055ca3080d118cc3354c706eb60079b9ae5422876db2385.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\549bf8cb11f589c27ec7ecc3552fe36275d6bab668c5cbd49c58647851d46a09.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\5d03ff1323357c7f115818980248f8621717b4be9d76d085ecf32ca0f232c9fd.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\654f83af2972087179be209dacde76fcf0001ed289c267f2f9b9dfe828bb84b7.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\66b7b0147e133a24c64cd27344f0b62dd0eeeaf91ef4c9323176ef0e77762e28.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\6b9423fe5feca7e90144ac342f88bcacd921ef09ee86c908e76e5cc84791ccad.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\6f93ec6b2e0bdbda42e77fbb3200366b2eb00bcdb790fcf6ddc3aaf2f79b9583.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\736b3d2bdc64e73af2f08cfa42dffb1b74bff0f3c4b2be379152a69a0048bdfd.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\74fd9e9dd1bc9626fb92b9ba9c919cca9d0e3aa33737ac309a595ac48f270b63.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\7a3fab36b8cb6354b863bfd3058ba893c75464fb909a7224a33717d3aa70e04d.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\7fd14537a781267cbdf155bbbf059939f019709394ec4ee443df31045a49ae74.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\80f8f225d83a1e849bd6f81fc4ae790df416334ac32cd3df8f086f2f5fa02fb8.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\8333538b85e06637917648d79e6fb5b9bac4804a03a1b76471fd1cc56588486c.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\855cf1937e6954ca32215daae8dba04efa489ef4f8087ab614857f05934b2952.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\88c0cdb286dc5c3ff416d458d2cba72ed4d32741c3fbc7b0073d24165f0c8fb2.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\8f77a8d674ddfd62a1993b320386b7c39257c3718e36bb3f3179da3f66da9f68.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\975752ecea99ae24ed78f73de19d31c392bd368eb71e2979f7801dc4319ba4bd.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\9c5df4c982b50d5413cc33776e60ad98afa1a643efb22964de8054b499e98e64.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\9ea4044eff3bb7a628f2888319a43345a2b8f0bc1d4c69dacb3ddcd62898d986.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\a347078f02dd548460da1a21526a1eb19eaf7ce286a3d95b8e9b5cde4307ef91.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\a51732efe919d3535b598650f4033337c0aa5323dd43c8c94c7bb16af1a5975e.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\ad588dc482f880b4fbe8cbcffc9d260de4928a9162fec783382211d2c5381ac1.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\aef5079f8c1ce3be1af7fc350a1bd274bf6838156a11559cdcd69cd3a281f14f.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\b51564af6fc7f50c733bcf3413928e6c8e21c727d41005ae03f22a97dc035f28.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\b98c08eb9a0e9a9efdd6c3724dec7f29e3c6fbf6555cbb386dede35fb0165c31.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\b98f3bb7eb5e2aeb819eb8a8858e930b56cc8585698c0e62b7acee82953415b7.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\c096a3063c96e6bb8e9b3b4d8a777f3c185edd2e080a852f80091d12d2848848.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\c7173bdf74148616aaa1d3219d06defed71a68d50eeee420a992916740ed84ee.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\c71d5c32ed0cdd967e3f9ec96c8790858ffce8652f0d3a0ae00ca282f7a7bbe1.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\c93d59902b9306ebe3cbea3ae8ea3bb77619b3fc2e3be653c083773aa9542fc3.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\ccfbfaa1d55b27c04c18e85b5082398ee59d2b8d877309f3e39175977363474e.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\d8ac7f8087552c0848a59eba49a60e2cb229968bb63b5fcd672b3e7d30cd1855.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\d97eaf0d74a0b4fc812946c6a4dbd916830a934407bb41f735a6498b656ee272.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\dcc8bf9f9d846c8567ebf3ae846d62d737395b7cd336bca4eff36a65dda83d86.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\dce5629ca0cc979df2e1ddfe7e9415cbbbe5520f79bbd4a8f74ab92438da7e19.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\e9b0264253caa39e7dfbe8d7a1443e4ca7ad2d5bbc0d28d8a6ee57cf22316c72.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\edb820a0d6728384686b8c917f0a11ce60161d9e2452f8ee5dd1bfc23d3b3e51.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\f65bc8ee6a07f5021101ec8398cc4357d65df6ef203d8b6522c7453279e6c3c3.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\f6e5e19206b6b309a6f912a2b81d952d0d2399f895b965563f54c86dced3116e.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\fbb1a76f3c1bacc122899c667d38cc4ee26a2be652b0c3959fc1f87724b271c0.jpg",
+            "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\fff827f734b600347188f6c71890e6cf7fcc68daa058c5ae2c26746f5a9fc119.jpg"
+          ],
+          "summary": {
+            "elements": 272,
+            "by_type": {
+              "chart": 11,
+              "code": 5,
+              "equation": 38,
+              "footer": 1,
+              "image": 4,
+              "list": 4,
+              "page_footnote": 3,
+              "page_number": 25,
+              "table": 6,
+              "text": 175
+            },
+            "text_elements": 247,
+            "media_elements": 59
+          },
+          "markdown_preview": "# Reduced Policy Optimization for Continuous Control with Hard Constraints\n\nShutong Ding1 Jingya Wang1 Yali Du2 Ye Shi1 ∗\n\n1ShanghaiTech University 2King’s College London\n\n{dingsht, wangjingya, shiye}@shanghaitech.edu.cn yali.du@kcl.ac.uk\n\n## Abstract\n\nRecent advances in constrained reinforcement learning (RL) have endowed reinforcement learning with certain safety guarantees. However, deploying existing constrained RL algorithms in continuous control tasks with general hard constraints remains challenging, particularly in those situations with non-convex hard constraints. Inspired by the generalized reduced gradient (GRG) algorithm, a classical constrained optimization technique, we propose a reduced policy optimization (RPO) algorithm that combines RL with GRG to address general hard constraints. RPO partitions actions into basic actions and nonbasic actions following the GRG method and output the basic actions via a policy network. Subsequently, RPO calculates the nonbasic actions by solving equations based on equality constraints using the obtained basic actions. The policy network is then updated by implicitly differentiating nonbasic actions with respect to basic actions. Additionally, we introduce an action projection procedure based on the reduced gradient and apply a modified Lagrangian relaxation technique to ensure inequality constraints are satisfied. To the best of our knowledge, RPO is the first attempt that introduces GRG to RL as a way of efficiently handling both equality and inequality hard constraints. It is worth noting that there is currently a lack of RL environments with complex hard constraints, which motivates us to develop three new benchmarks: two robotics manipulation tasks and a smart grid operation control task. With these benchmarks, RPO achieves better performance than previous constrained RL algorithms in terms of both cumulative reward and constraint violation. We believe RPO, along with the new benchmarks, will open up new opportun"
+        }
+      ],
+      "summary": {
+        "documents": 1,
+        "chunks": 272
+      }
+    },
+    "chunks_preview": [
+      {
+        "document": "2211_reduced_policy_optimization_fo",
+        "element_id": "2211_reduced_policy_optimization_fo:000000",
+        "element_index": 0,
+        "type": "text",
+        "page_idx": 0,
+        "text": "Reduced Policy Optimization for Continuous Control with Hard Constraints",
+        "bbox": [
+          176,
+          121,
+          820,
+          171
+        ],
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "Reduced Policy Optimization for Continuous Control with Hard Constraints",
+          "text_level": 1,
+          "bbox": [
+            176,
+            121,
+            820,
+            171
+          ],
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "2211_reduced_policy_optimization_fo",
+        "element_id": "2211_reduced_policy_optimization_fo:000001",
+        "element_index": 1,
+        "type": "text",
+        "page_idx": 0,
+        "text": "Shutong Ding1 Jingya Wang1 Yali Du2 Ye Shi1 ∗",
+        "bbox": [
+          300,
+          219,
+          702,
+          238
+        ],
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "Shutong Ding1 Jingya Wang1 Yali Du2 Ye Shi1 ∗",
+          "bbox": [
+            300,
+            219,
+            702,
+            238
+          ],
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "2211_reduced_policy_optimization_fo",
+        "element_id": "2211_reduced_policy_optimization_fo:000002",
+        "element_index": 2,
+        "type": "text",
+        "page_idx": 0,
+        "text": "1ShanghaiTech University 2King’s College London",
+        "bbox": [
+          318,
+          251,
+          679,
+          267
+        ],
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "1ShanghaiTech University 2King’s College London",
+          "bbox": [
+            318,
+            251,
+            679,
+            267
+          ],
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "2211_reduced_policy_optimization_fo",
+        "element_id": "2211_reduced_policy_optimization_fo:000003",
+        "element_index": 3,
+        "type": "text",
+        "page_idx": 0,
+        "text": "{dingsht, wangjingya, shiye}@shanghaitech.edu.cn yali.du@kcl.ac.uk",
+        "bbox": [
+          295,
+          280,
+          710,
+          309
+        ],
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "{dingsht, wangjingya, shiye}@shanghaitech.edu.cn yali.du@kcl.ac.uk",
+          "bbox": [
+            295,
+            280,
+            710,
+            309
+          ],
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "2211_reduced_policy_optimization_fo",
+        "element_id": "2211_reduced_policy_optimization_fo:000004",
+        "element_index": 4,
+        "type": "text",
+        "page_idx": 0,
+        "text": "Abstract",
+        "bbox": [
+          459,
+          344,
+          539,
+          361
+        ],
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "Abstract",
+          "text_level": 2,
+          "bbox": [
+            459,
+            344,
+            539,
+            361
+          ],
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "2211_reduced_policy_optimization_fo",
+        "element_id": "2211_reduced_policy_optimization_fo:000005",
+        "element_index": 5,
+        "type": "text",
+        "page_idx": 0,
+        "text": "Recent advances in constrained reinforcement learning (RL) have endowed reinforcement learning with certain safety guarantees. However, deploying existing constrained RL algorithms in continuous control tasks with general hard constraints remains challenging, particularly in those situations with non-convex hard constraints. Inspired by the generalized reduced gradient (GRG) algorithm, a classical constrained optimization technique, we propose a reduced policy optimization (RPO) algorithm that combines RL with GRG to address general hard constraints. RPO partitions actions into basic actions and nonbasic actions following the GRG method and output the basic actions via a policy network. Subsequently, RPO calculates the nonbasic actions by solving equations based on equality constraints using the obtained basic actions. The policy network is then updated by implicitly differentiating nonbasic actions with respect to basic actions. Additionally, we introduce an action projection procedure based on the reduced gradient and apply a modified Lagrangian relaxation technique to ensure inequality constraints are satisfied. To the best of our knowledge, RPO is the first attempt that introduces GRG to RL as a way of efficiently handling both equality and inequality hard constraints. It is worth noting that there is currently a lack of RL environments with complex hard constraints, which motivates us to develop three new benchmarks: two robotics manipulation tasks and a smart grid operation control task. With these benchmarks, RPO achieves better performance than previous constrained RL algorithms in terms of both cumulative reward and constraint violation. We believe RPO, along with the new benchmarks, will open up new opportunities for applying RL to real-world problems with complex constraints.",
+        "bbox": [
+          228,
+          376,
+          767,
+          695
+        ],
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "Recent advances in constrained reinforcement learning (RL) have endowed reinforcement learning with certain safety guarantees. However, deploying existing constrained RL algorithms in continuous control tasks with general hard constraints remains challenging, particularly in those situations with non-convex hard constraints. Inspired by the generalized reduced gradient (GRG) algorithm, a classical constrained optimization technique, we propose a reduced policy optimization (RPO) algorithm that combines RL with GRG to address general hard constraints. RPO partitions actions into basic actions and nonbasic actions following the GRG method and output the basic actions via a policy network. Subsequently, RPO calculates the nonbasic actions by solving equations based on equality constraints using the obtained basic actions. The policy network is then updated by implicitly differentiating nonbasic actions with respect to basic actions. Additionally, we introduce an action projection procedure based on the reduced gradient and apply a modified Lagrangian relaxation technique to ensure inequality constraints are satisfied. To the best of our knowledge, RPO is the first attempt that introduces GRG to RL as a way of efficiently handling both equality and inequality hard constraints. It is worth noting that there is currently a lack of RL environments with complex hard constraints, which motivates us to develop three new benchmarks: two robotics manipulation tasks and a smart grid operation control task. With these benchmarks, RPO achieves better performance than previous constrained RL algorithms in terms of both cumulative reward and constraint violation. We believe RPO, along with the new benchmarks, will open up new opportunities for applying RL to real-world problems with complex constraints.",
+          "bbox": [
+            228,
+            376,
+            767,
+            695
+          ],
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "2211_reduced_policy_optimization_fo",
+        "element_id": "2211_reduced_policy_optimization_fo:000006",
+        "element_index": 6,
+        "type": "text",
+        "page_idx": 0,
+        "text": "1 Introduction",
+        "bbox": [
+          173,
+          719,
+          312,
+          736
+        ],
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "1 Introduction",
+          "text_level": 2,
+          "bbox": [
+            173,
+            719,
+            312,
+            736
+          ],
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "2211_reduced_policy_optimization_fo",
+        "element_id": "2211_reduced_policy_optimization_fo:000007",
+        "element_index": 7,
+        "type": "text",
+        "page_idx": 0,
+        "text": "The past few years have witnessed the significant success of reinforcement learning (RL) [41] in various fields such as mastering GO [38], robotic manipulations [20, 24], autonomous driving [34], and smart grid controlling [52, 47, 33], etc. However, it is still challenging to deploy RL algorithms in real-world control tasks, such as operating robots on a specific surface, controlling power generation to fulfill the demand, etc. The principal reason here is that hard constraints must be taken into account in these control problems. Concretely, such constraints come in the form of both equality and inequality constraints and can be nonlinear or even nonconvex, which makes it difficult to handle them in RL. Moreover, unlike soft constraints, hard constraints take explicit form and require strict compliance, which poses additional challenges.",
+        "bbox": [
+          169,
+          751,
+          826,
+          878
+        ],
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "The past few years have witnessed the significant success of reinforcement learning (RL) [41] in various fields such as mastering GO [38], robotic manipulations [20, 24], autonomous driving [34], and smart grid controlling [52, 47, 33], etc. However, it is still challenging to deploy RL algorithms in real-world control tasks, such as operating robots on a specific surface, controlling power generation to fulfill the demand, etc. The principal reason here is that hard constraints must be taken into account in these control problems. Concretely, such constraints come in the form of both equality and inequality constraints and can be nonlinear or even nonconvex, which makes it difficult to handle them in RL. Moreover, unlike soft constraints, hard constraints take explicit form and require strict compliance, which poses additional challenges.",
+          "bbox": [
+            169,
+            751,
+            826,
+            878
+          ],
+          "page_idx": 0
+        }
+      }
+    ]
+  },
+  "error": null
+}

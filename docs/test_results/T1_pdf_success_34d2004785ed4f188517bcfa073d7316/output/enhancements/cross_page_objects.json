@@ -1,0 +1,600 @@
+{
+  "multi_page_table_candidates": [
+    {
+      "type": "multi_page_table_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "pages": [
+        23,
+        24
+      ],
+      "element_ids": [
+        "2211_reduced_policy_optimization_fo:000245",
+        "2211_reduced_policy_optimization_fo:000251"
+      ],
+      "merge_reason": "相邻页面检测到连续表格元素，建议作为跨页表格候选复核。"
+    }
+  ],
+  "reference_resolution_candidates": [
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000005",
+      "source_page_idx": 0,
+      "source_text_preview": "Recent advances in constrained reinforcement learning (RL) have endowed reinforcement learning with certain safety guarantees. However, deploying existing constrained RL algorithms",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000003",
+      "candidate_target_page_idx": 0,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000007",
+      "source_page_idx": 0,
+      "source_text_preview": "The past few years have witnessed the significant success of reinforcement learning (RL) [41] in various fields such as mastering GO [38], robotic manipulations [20, 24], autonomou",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000006",
+      "candidate_target_page_idx": 0,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000010",
+      "source_page_idx": 1,
+      "source_text_preview": "Existing work on constrained RL can be divided into two categories. The first category involves treating constraints as implicit or soft constraints and using Safe RL algorithms [4",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000009",
+      "candidate_target_page_idx": 0,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000011",
+      "source_page_idx": 1,
+      "source_text_preview": "In the second category, the approaches treat the output of the policy network as a set of sub-optimal actions, correcting them to satisfy the constraints by adding an extra constra",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000009",
+      "candidate_target_page_idx": 0,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000012",
+      "source_page_idx": 1,
+      "source_text_preview": "To address the limitations of existing RL algorithms in handling hard constraints, we propose a constrained off-policy reinforcement learning algorithm called Reduced Policy Optimi",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000009",
+      "candidate_target_page_idx": 0,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000013",
+      "source_page_idx": 1,
+      "source_text_preview": "1) Reduced Policy Optimization. We present RPO, an innovative approach that introduces the GRG algorithm into off-policy RL algorithms. RPO treats the output of the policy network ",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000009",
+      "candidate_target_page_idx": 0,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000014",
+      "source_page_idx": 1,
+      "source_text_preview": "2) RL Benchmarks with Hard Constraints. We develop three benchmarks with hard constraints to validate the performance of our method, involving Safe CartPole, Spring Pendulum and Op",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000009",
+      "candidate_target_page_idx": 0,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000016",
+      "source_page_idx": 1,
+      "source_text_preview": "In this section, we first review the existing methods in the field of constrained RL and divide them into different types according to different constraints. We summarize the diffe",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000015",
+      "candidate_target_page_idx": 1,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000017",
+      "source_page_idx": 1,
+      "source_text_preview": "Soft-Constrainted RL. RL with soft constraints is well-studied and also known as safe reinforcement learning (Safe RL). One of the principal branches in Safe RL methods is based on",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000015",
+      "candidate_target_page_idx": 1,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000023",
+      "source_page_idx": 2,
+      "source_text_preview": "Markov Decision Process. A classical Markov decision process (MDP) [41] can be represented as a tuple (S, A, R, P, µ), where S is the state space, A is the action space, R : S × A ",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000022",
+      "candidate_target_page_idx": 2,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000033",
+      "source_page_idx": 3,
+      "source_text_preview": "Problem Formulation. Although simple explicit constraints in neural networks can be easily handled by some specific activation functions (e.g., the Softmax operator for probability",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000032",
+      "candidate_target_page_idx": 3,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000035",
+      "source_page_idx": 3,
+      "source_text_preview": "where fi and gj are the hard deterministic constraints that are only related to st and at in the current step, and they are required to be satisfied in all states for the policy. N",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000034",
+      "candidate_target_page_idx": 3,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000038",
+      "source_page_idx": 3,
+      "source_text_preview": "Recalling the nature of equality constraints, it can be viewed as the reduction of the freedom degree in actions. Hence, we follow the formulation in GRG method and divide actions ",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000037",
+      "candidate_target_page_idx": 3,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000039",
+      "source_page_idx": 3,
+      "source_text_preview": "Proposition 1. (Gradient Flow in Construction Stage) Assume that we have (n − m) equality constraints denoted as F (a; s) = 0 in each state s. Let aB ∈ Rm and a ∈ Rn be the basic a",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000037",
+      "candidate_target_page_idx": 3,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000047",
+      "source_page_idx": 4,
+      "source_text_preview": "After the construction stage, the initial actions denoted as a˜ may still fall out of a feasible region determined by inequality constraints. Hence, the principal difficulty here i",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000046",
+      "candidate_target_page_idx": 4,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000051",
+      "source_page_idx": 4,
+      "source_text_preview": "where ηa called projection step can be viewed as the learning rate of GRG update to control the step of update and ak denotes the actions a at the k-th update where a0 ≜ a˜. After ",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000050",
+      "candidate_target_page_idx": 4,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000054",
+      "source_page_idx": 5,
+      "source_text_preview": "The proof is referred to in supplementary materials. Theorem 1 indicates that the projection stage will not violate the linear equality constraints. With regard to nonlinear equali",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000053",
+      "candidate_target_page_idx": 5,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000058",
+      "source_page_idx": 5,
+      "source_text_preview": "Policy Loss with Modified Lagrangian Relaxation. While the above two-stage decision procedure can cope with the satisfaction of equality and inequality constraints, the policy netw",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000056",
+      "candidate_target_page_idx": 5,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000060",
+      "source_page_idx": 5,
+      "source_text_preview": "This means we need to deal with instantaneous inequality constraints in all states. Hence, we cannot apply the primal-dual update method directly like PDO [13]. Otherwise, we need ",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000059",
+      "candidate_target_page_idx": 5,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000068",
+      "source_page_idx": 6,
+      "source_text_preview": "where ηjν is the learning rate of j-th penalty factors, νjk is value of νj in the k-th step and νj0 = 0. Since the exact penalty term, Es∼π [max {0, gj(˜π(st); st)}], is always non",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000067",
+      "candidate_target_page_idx": 6,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000069",
+      "source_page_idx": 6,
+      "source_text_preview": "Off-policy RL Training. Since we augment the policy loss function with the exact penalty term, the actual objective of our algorithm is two-fold. One is to obtain the optimal polic",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000067",
+      "candidate_target_page_idx": 6,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000075",
+      "source_page_idx": 6,
+      "source_text_preview": "Specifically, our benchmarks are designed based on [12], with extra interfaces to return the information of the hard constraints. To the best of our knowledge, it is the first eval",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000074",
+      "candidate_target_page_idx": 6,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000076",
+      "source_page_idx": 6,
+      "source_text_preview": "1) Safe CartPole. Different from that standard CartPole environment in Gym [12], we control two forces from different directions in the Safe CartPole environment. The goal is to ke",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000074",
+      "candidate_target_page_idx": 6,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000077",
+      "source_page_idx": 6,
+      "source_text_preview": "2) Spring Pendulum. Motivated by the Pendulum environment [12], we construct a Spring Pendulum environment that replaces the pendulum with a light spring, which connects the fixed ",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000074",
+      "candidate_target_page_idx": 6,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000086",
+      "source_page_idx": 7,
+      "source_text_preview": "3) Optimal Power Flow with Battery Energy Storage. Optimal Power Flow (OPF) is a classical problem in smart grid operation to minimize the total cost of power generation with the s",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000084",
+      "candidate_target_page_idx": 7,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000092",
+      "source_page_idx": 8,
+      "source_text_preview": "Max Instantaneous Constraint Violation: maximum instantaneous violation of all constraints. It denotes the feasibility of actions in a state because the feasibility of actions reli",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000091",
+      "candidate_target_page_idx": 8,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000095",
+      "source_page_idx": 8,
+      "source_text_preview": "We plot the learning curves of CPO, CUP, Safety Layer, DDPG-L, SAC-L, RPO-DDPG, and RPO-SAC in Figure 3. Notably, to validate the importance of the two-stage decision procedure, he",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000094",
+      "candidate_target_page_idx": 8,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000096",
+      "source_page_idx": 8,
+      "source_text_preview": "Besides the learning curves, Table 2 shows the performance of different algorithms after convergence. To present more details on the constraint violations, here the equality and in",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000094",
+      "candidate_target_page_idx": 8,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000098",
+      "source_page_idx": 8,
+      "source_text_preview": "We acknowledge that there still exist some limitations in RPO. One is that RPO is time-consuming compared to standard neural networks due to the projection stage, where the GRG upd",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000097",
+      "candidate_target_page_idx": 8,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000101",
+      "source_page_idx": 9,
+      "source_text_preview": "In this paper, we outlined a novel algorithm called RPO to handle general hard constraints under the off-policy reinforcement learning framework. RPO consists of two stages, the co",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000100",
+      "candidate_target_page_idx": 9,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000103",
+      "source_page_idx": 9,
+      "source_text_preview": "This work was supported by NSFC (No.62303319), Shanghai Sailing Program (22YF1428800, 21YF1429400), Shanghai Local College Capacity Building Program (23010503100), Shanghai Frontie",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000102",
+      "candidate_target_page_idx": 9,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000115",
+      "source_page_idx": 13,
+      "source_text_preview": "Proposition 1. (Gradient Flow in Construction Stage) Assume that we have (n − m) equality constraints denoted as F (a; s) = 0 in each state s. Let aB ∈ Rm and a ∈ Rn be the basic a",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000114",
+      "candidate_target_page_idx": 13,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000147",
+      "source_page_idx": 15,
+      "source_text_preview": "Assume that the inequality constraint that needs to be satisfied is g(a; s) ≤ 0. For a given action ak that does not satisfy the inequality constraint after k updates, i.e., g (ak)",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000146",
+      "candidate_target_page_idx": 15,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000150",
+      "source_page_idx": 15,
+      "source_text_preview": "Obviously, to ensure the satisfaction of the inequality constraint, i.e., g(ak+1) ≤ 0, we must limit the projection step with ηa ≥ 1/(2cT c). However, ηa is often a sufficiently sm",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000146",
+      "candidate_target_page_idx": 15,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000159",
+      "source_page_idx": 16,
+      "source_text_preview": "In this section, we will illustrate the dynamics of our three benchmarks in detail.",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000158",
+      "candidate_target_page_idx": 16,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000165",
+      "source_page_idx": 17,
+      "source_text_preview": "Action. The action space |A| ∈ R2 of Safe CartPole is the sign and magnitude of two forces f1, f2 from different directions. Specifically, one force is inclined 30 degrees below th",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000162",
+      "candidate_target_page_idx": 16,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000166",
+      "source_page_idx": 17,
+      "source_text_preview": "Reward. The goal of Safe CartPole is similar to the CartPole in Gym [12], which requires the pole to keep upright as long as possible. Therefore, we employ the same reward policy t",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000162",
+      "candidate_target_page_idx": 16,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000167",
+      "source_page_idx": 17,
+      "source_text_preview": "Equality Constraints. The equality constraint of Safe CartPole is that the summation of two forces in y axis should be zero. That is, we desire to avoid extra friction on the cart,",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000162",
+      "candidate_target_page_idx": 16,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000169",
+      "source_page_idx": 17,
+      "source_text_preview": "Inequality Constraints. The inequality constraint is that the summation of two forces in the x axis should be bounded by a box constraint, which indicates the physical limitation o",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000168",
+      "candidate_target_page_idx": 17,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000178",
+      "source_page_idx": 18,
+      "source_text_preview": "Action. The action space |A| ∈ R2 of Spring Pendulum is the sign and magnitude of two forces fx, fy in the x, y axes. Notably, since the spring pendulum is rotating, the angle betw",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000177",
+      "candidate_target_page_idx": 18,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000179",
+      "source_page_idx": 18,
+      "source_text_preview": "Reward. The goal of Spring Pendulum is to keep the spring pendulum in an upright position. The episode will never be done until the maximum time step. Specifically, the reward func",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000177",
+      "candidate_target_page_idx": 18,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000185",
+      "source_page_idx": 18,
+      "source_text_preview": "Furthermore, to connect each component mentioned above, we derive the dynamics of the Spring Pendulum. Applying Euler-Lagrange Equation L = T − V to spring pendulum, then we obtain",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000184",
+      "candidate_target_page_idx": 18,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000198",
+      "source_page_idx": 19,
+      "source_text_preview": "The additional variables pb ∈ Rn is the charging (positive) or discharging (negative) power of the battery groups, and c(t) represents the cost or the income in the time step t. Ex",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000197",
+      "candidate_target_page_idx": 19,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000199",
+      "source_page_idx": 19,
+      "source_text_preview": "Specifically, this benchmark is based on a 14-node power system, which is available in the PYPOWER package. We adopt the same topology of the electricity grid with 5 generator node",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000197",
+      "candidate_target_page_idx": 19,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000212",
+      "source_page_idx": 20,
+      "source_text_preview": "Implementation of Construction Stage. Unlike previous robotic manipulation cases, OPF with Battery Energy Storage environment has nonlinear equality constraints. This means the ana",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000211",
+      "candidate_target_page_idx": 20,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000222",
+      "source_page_idx": 21,
+      "source_text_preview": "The projection stage performs the GRG updates until all inequality constraints are satisfied. It is valuable to investigate the impact of the number of maximum GRG updates K on mod",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000221",
+      "candidate_target_page_idx": 21,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000225",
+      "source_page_idx": 21,
+      "source_text_preview": "choice of K does not have an obvious impact on the episodic reward when K is not too large. The slight improvement in constraint violation between K = 10 and K = 50 illustrates tha",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000224",
+      "candidate_target_page_idx": 21,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000228",
+      "source_page_idx": 22,
+      "source_text_preview": "Besides, We conduct experiments to confirm the performance of the adaptive penalty factor with dual update compared to that of the fixed penalty factor as introduced in Section 4. ",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000227",
+      "candidate_target_page_idx": 22,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000233",
+      "source_page_idx": 22,
+      "source_text_preview": "As we illustrate in the construction stage, the integrated actions are actually determined once the basic actions are given. Therefore, it is possible for the value network to appr",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000232",
+      "candidate_target_page_idx": 22,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000234",
+      "source_page_idx": 22,
+      "source_text_preview": "To explore the necessity of the backpropagation with generalized reduced gradient, we also contrast the performance in RPOSAC trained with/without the complete gradient. Concretely",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000232",
+      "candidate_target_page_idx": 22,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000239",
+      "source_page_idx": 22,
+      "source_text_preview": "The training time comparison in our three benchmarks is shown in Tables 3. It can be observed that the training time of RPO-DDPG and RPO-SAC grows linearly with the number of const",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000238",
+      "candidate_target_page_idx": 22,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000247",
+      "source_page_idx": 23,
+      "source_text_preview": "While it is usually not difficult to divide actions into basic and nonbasic actions, we present the systematical action division method below to further show the generality of our ",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000246",
+      "candidate_target_page_idx": 23,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000255",
+      "source_page_idx": 24,
+      "source_text_preview": "equality constraint can be represented by another two constraints. Hence, we can delete this redundant constraint and the new equality constraints are A˜ + ˜b = 0, where",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000253",
+      "candidate_target_page_idx": 24,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000259",
+      "source_page_idx": 24,
+      "source_text_preview": "divided as nonbasic actions. Therefore, after removing the redundant equality constraints, we need to choose actions that correspond to the maximal linearly independent column vect",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000257",
+      "candidate_target_page_idx": 24,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000260",
+      "source_page_idx": 24,
+      "source_text_preview": "Nonlinear. In the nonlinear case, the systematical way that divides the full action into the basic and nonbasic actions is principally to ensure the solvability of the equality equ",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000257",
+      "candidate_target_page_idx": 24,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000263",
+      "source_page_idx": 25,
+      "source_text_preview": "For example, if we have 3 equality constraints on action a ∈ R4 like that",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000261",
+      "candidate_target_page_idx": 24,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000267",
+      "source_page_idx": 25,
+      "source_text_preview": "Now, we need to choose the nonbasic actions that cover the equality constraints as many as possible. This is the maximal matching problem in the bipartite graph, where constraints ",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000265",
+      "candidate_target_page_idx": 25,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    },
+    {
+      "type": "reference_resolution_candidate",
+      "document": "2211_reduced_policy_optimization_fo",
+      "source_element_id": "2211_reduced_policy_optimization_fo:000270",
+      "source_page_idx": 25,
+      "source_text_preview": "a small perturbation on the current action point or J F to make J F invertible. This is a useful trick in classical control methods. However, this situation is seldom seen in pract",
+      "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000269",
+      "candidate_target_page_idx": 25,
+      "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+    }
+  ],
+  "scanned_chunk_count": 272
+}

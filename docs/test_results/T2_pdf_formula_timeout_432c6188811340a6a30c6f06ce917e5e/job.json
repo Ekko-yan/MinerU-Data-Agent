@@ -1,0 +1,110 @@
+{
+  "job_id": "432c6188811340a6a30c6f06ce917e5e",
+  "status": "failed",
+  "created_at": "2026-05-21T04:58:57.003676Z",
+  "updated_at": "2026-05-21T05:31:57.292688Z",
+  "input_filename": "2211_reduced_policy_optimization_fo.pdf",
+  "input_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\432c6188811340a6a30c6f06ce917e5e\\input\\2211_reduced_policy_optimization_fo.pdf",
+  "output_dir": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\432c6188811340a6a30c6f06ce917e5e\\output",
+  "options": {
+    "backend": "pipeline",
+    "method": "auto",
+    "lang": "ch",
+    "formula": true,
+    "table": true,
+    "image_analysis": true,
+    "model_source": "modelscope",
+    "use_llm": true,
+    "api_url": null,
+    "server_url": null,
+    "start_page": 0,
+    "end_page": null
+  },
+  "logs": [
+    {
+      "time": "2026-05-21T04:58:57.013110Z",
+      "stage": "queue",
+      "level": "info",
+      "message": "Task queued and waiting for an available MinerU worker.",
+      "details": {}
+    },
+    {
+      "time": "2026-05-21T04:58:57.035940Z",
+      "stage": "understand",
+      "level": "info",
+      "message": "Task received and input validation completed.",
+      "details": {
+        "filename": "2211_reduced_policy_optimization_fo.pdf",
+        "input_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\432c6188811340a6a30c6f06ce917e5e\\input\\2211_reduced_policy_optimization_fo.pdf"
+      }
+    },
+    {
+      "time": "2026-05-21T04:58:57.056641Z",
+      "stage": "plan",
+      "level": "info",
+      "message": "Calling the LLM planner.",
+      "details": {}
+    },
+    {
+      "time": "2026-05-21T04:59:15.957078Z",
+      "stage": "plan",
+      "level": "info",
+      "message": "Execution plan generated.",
+      "details": {
+        "plan": {
+          "goal": "Parse the document into Markdown and normalized structured JSON chunks.",
+          "steps": [
+            "Validate input type and create a task workspace.",
+            "Call MinerU with the selected backend and parsing options.",
+            "Collect Markdown, content_list, middle_json, images, and metadata.",
+            "Normalize parsed elements into JSONL chunks.",
+            "Verify output completeness and generate a reproducible processing log."
+          ],
+          "risk_controls": [
+            "Keep original MinerU outputs for auditability.",
+            "Return file paths and element counts for downstream validation.",
+            "Surface parser warnings in task logs."
+          ]
+        }
+      }
+    },
+    {
+      "time": "2026-05-21T04:59:15.973468Z",
+      "stage": "execute",
+      "level": "info",
+      "message": "Calling the MinerU structured parsing module.",
+      "details": {
+        "command": [
+          "D:\\vscodepro\\MinerU\\.venv_mineru\\Scripts\\mineru.exe",
+          "-p",
+          "D:\\vscodepro\\MinerU\\agent_data\\jobs\\432c6188811340a6a30c6f06ce917e5e\\input\\2211_reduced_policy_optimization_fo.pdf",
+          "-o",
+          "D:\\vscodepro\\MinerU\\agent_data\\jobs\\432c6188811340a6a30c6f06ce917e5e\\output",
+          "-b",
+          "pipeline",
+          "-m",
+          "auto",
+          "-l",
+          "ch",
+          "-f",
+          "true",
+          "-t",
+          "true",
+          "--image-analysis",
+          "true",
+          "--start",
+          "0"
+        ]
+      }
+    },
+    {
+      "time": "2026-05-21T05:31:57.282910Z",
+      "stage": "error",
+      "level": "error",
+      "message": "MinerU exceeded timeout of 1800 seconds.",
+      "details": {}
+    }
+  ],
+  "result": null,
+  "error": "MinerU exceeded timeout of 1800 seconds."
+}

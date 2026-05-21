@@ -1,0 +1,16 @@
+$ D:\vscodepro\MinerU\.venv_mineru\Scripts\mineru.exe -p D:\vscodepro\MinerU\agent_data\jobs\02876e2fbe44429894c09ddd50dc7ab4\input\1.docx -o D:\vscodepro\MinerU\agent_data\jobs\02876e2fbe44429894c09ddd50dc7ab4\output -b pipeline -m auto -l ch -f true -t true --image-analysis true --start 0
+[data-agent] cwd=D:\vscodepro\MinerU
+[data-agent] mineru_pid=42792
+
+2026-05-21 12:14:13.003 | INFO     | mineru.cli.client:run_orchestrated_cli:877 - Started local mineru-api at http://127.0.0.1:24419
+2026-05-21 12:14:18.568 | INFO     | __main__:create_app:233 - Request concurrency limited to 3
+INFO:     Started server process [23792]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:24419 (Press CTRL+C to quit)
+2026-05-21 12:14:19.139 | INFO     | mineru.cli.client:run_planned_task:773 - Submitting batch 1/1 | 1 document, 1 page in this batch | 1 page total | task#1 [1]
+2026-05-21 12:14:19.294 | WARNING  | mineru.cli.common:do_parse:659 - No valid PDF or image files to process.
+2026-05-21 12:14:20.336 | INFO     | mineru.cli.client:run_planned_task:809 - Completed batch 1/1 | Processed 1/1 page | 1 of 1 batch finished | task#1 [1]
+2026-05-21 12:14:20.826 | WARNING  | mineru.cli.client:log_visualization_future_result:390 - Skipping visualization for 1: missing origin.pdf: 1_origin.pdf
+
+[data-agent] mineru_exit_code=0

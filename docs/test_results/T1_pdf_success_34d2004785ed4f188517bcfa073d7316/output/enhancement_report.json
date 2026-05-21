@@ -1,0 +1,1528 @@
+{
+  "generated_at": "2026-05-21T06:43:14.654502+00:00",
+  "job_id": "34d2004785ed4f188517bcfa073d7316",
+  "routing": {
+    "input_suffix": ".pdf",
+    "modules": [
+      "image_preprocess",
+      "financial_table_validator",
+      "chart_parser",
+      "cross_page_merge"
+    ],
+    "policy": "始终记录四类增强模块的执行或跳过原因；可选依赖缺失时不中断 MinerU 主流程。"
+  },
+  "pre_mineru": {
+    "generated_at": "2026-05-21T06:43:14.596596+00:00",
+    "effective_input_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\input\\2211_reduced_policy_optimization_fo.pdf",
+    "modules": [
+      {
+        "name": "image_preprocess",
+        "status": "skipped",
+        "summary": "输入不是图片文件，MinerU 将直接处理原始文档。",
+        "details": {},
+        "artifacts": [],
+        "tool_calls": [],
+        "warnings": [],
+        "skipped_reason": "仅对图片类输入启用预处理；PDF/Office 文档暂不在此步骤改写输入。"
+      }
+    ]
+  },
+  "post_mineru": {
+    "generated_at": "2026-05-21T06:43:14.653506+00:00",
+    "modules": [
+      {
+        "name": "financial_table_validator",
+        "status": "review",
+        "summary": "已完成财报/密集数字表格校验，存在需要复核的数字格式风险。",
+        "details": {
+          "table_elements": 6,
+          "numeric_token_count": 547,
+          "dense_numeric_chunk_count": 10,
+          "finance_keyword_hits": [
+            "total"
+          ],
+          "dense_numeric_chunks": [
+            {
+              "element_id": "2211_reduced_policy_optimization_fo:000007",
+              "page_idx": 0,
+              "type": "text",
+              "number_count": 8
+            },
+            {
+              "element_id": "2211_reduced_policy_optimization_fo:000010",
+              "page_idx": 1,
+              "type": "text",
+              "number_count": 8
+            },
+            {
+              "element_id": "2211_reduced_policy_optimization_fo:000011",
+              "page_idx": 1,
+              "type": "text",
+              "number_count": 8
+            },
+            {
+              "element_id": "2211_reduced_policy_optimization_fo:000017",
+              "page_idx": 1,
+              "type": "text",
+              "number_count": 18
+            },
+            {
+              "element_id": "2211_reduced_policy_optimization_fo:000020",
+              "page_idx": 2,
+              "type": "text",
+              "number_count": 8
+            },
+            {
+              "element_id": "2211_reduced_policy_optimization_fo:000023",
+              "page_idx": 2,
+              "type": "text",
+              "number_count": 9
+            },
+            {
+              "element_id": "2211_reduced_policy_optimization_fo:000105",
+              "page_idx": 9,
+              "type": "list",
+              "number_count": 49
+            },
+            {
+              "element_id": "2211_reduced_policy_optimization_fo:000107",
+              "page_idx": 10,
+              "type": "list",
+              "number_count": 73
+            },
+            {
+              "element_id": "2211_reduced_policy_optimization_fo:000109",
+              "page_idx": 11,
+              "type": "list",
+              "number_count": 68
+            },
+            {
+              "element_id": "2211_reduced_policy_optimization_fo:000243",
+              "page_idx": 23,
+              "type": "text",
+              "number_count": 10
+            }
+          ],
+          "total_line_candidates": [
+            "3) Optimal Power Flow with Battery Energy Storage. Optimal Power Flow (OPF) is a classical problem in smart grid operation to minimize the total cost of power generation with the satisfaction of grid demand. However, battery energy storage systems or electric vehicles have been integrated into smart grids to alleviate the fluctuations of renewable energy generation recently. As illustrated in [30, 36], we need to jointly optimize the charging or discharging of batteries with OPF for the long-term effect of the smart grid operation. According to this real-world application, we design this environment, which is possessed of nonlinear power flow balance equality constraints and inequality box constraints on the actions for feasibility."
+          ],
+          "suspicious_ocr_patterns": [],
+          "invalid_comma_numbers": [
+            "20,",
+            "52,",
+            "47,",
+            "4,",
+            "13,",
+            "14,",
+            "49,",
+            "25,",
+            "51,",
+            "26,",
+            "16,",
+            "29,",
+            "10,",
+            "33,",
+            "32,",
+            "13,",
+            "39,",
+            "25,",
+            "35,",
+            "45,",
+            "5,",
+            "47,",
+            "0,",
+            "0,",
+            "1,",
+            "0,",
+            "3,",
+            "3,",
+            "0,",
+            "0,",
+            "2,",
+            "1,",
+            "30,",
+            "428800,",
+            "10,",
+            "10,",
+            "47,",
+            "582,",
+            "13,",
+            "29,",
+            "620,",
+            "6120,",
+            "31,",
+            "53,",
+            "34,",
+            "4947,",
+            "320,",
+            "1232,",
+            "34,",
+            "2235,"
+          ]
+        },
+        "artifacts": [
+          "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\enhancements\\financial_table_validation.json"
+        ],
+        "tool_calls": [
+          {
+            "tool": "rule_based_financial_validator",
+            "status": "called"
+          }
+        ],
+        "warnings": [
+          "检测到逗号分组异常的数字，建议人工或规则复核。"
+        ]
+      },
+      {
+        "name": "chart_parser",
+        "status": "candidate_extracted",
+        "summary": "已提取 59 个图表/图片候选区域。",
+        "details": {
+          "candidate_count": 59,
+          "chart_tool": "not_configured",
+          "candidates": [
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000041",
+              "type": "image",
+              "page_idx": 4,
+              "text_preview": "Figure 1: The training and decision procedure of RPO.",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\b51564af6fc7f50c733bcf3413928e6c8e21c727d41005ae03f22a97dc035f28.jpg",
+              "image_size": {
+                "width": 1095,
+                "height": 414
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000079",
+              "type": "chart",
+              "page_idx": 7,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\a51732efe919d3535b598650f4033337c0aa5323dd43c8c94c7bb16af1a5975e.jpg",
+              "image_size": {
+                "width": 357,
+                "height": 501
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000080",
+              "type": "image",
+              "page_idx": 7,
+              "text_preview": "(a) Safe CartPole",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\08f709b3a8a98c93c33c7aef27cbab4c3868d09085e30bf29dfe24603ddc0a8d.jpg",
+              "image_size": {
+                "width": 378,
+                "height": 273
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000081",
+              "type": "image",
+              "page_idx": 7,
+              "text_preview": "(b) Spring Pendulum",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\dcc8bf9f9d846c8567ebf3ae846d62d737395b7cd336bca4eff36a65dda83d86.jpg",
+              "image_size": {
+                "width": 307,
+                "height": 276
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000082",
+              "type": "image",
+              "page_idx": 7,
+              "text_preview": "(c) OPF with Battery Energy Storage",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\c71d5c32ed0cdd967e3f9ec96c8790858ffce8652f0d3a0ae00ca282f7a7bbe1.jpg",
+              "image_size": {
+                "width": 368,
+                "height": 320
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000083",
+              "type": "chart",
+              "page_idx": 7,
+              "text_preview": "Figure 2: Visualization of RL benchmarks with hard constraints. (a) Safe CartPole. The indicator lamp in the cart will be green if the given actions are feasible, and will be red otherwise. (b) Spring Pendulum. The length of the spring will",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\549bf8cb11f589c27ec7ecc3552fe36275d6bab668c5cbd49c58647851d46a09.jpg",
+              "image_size": {
+                "width": 345,
+                "height": 504
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000084",
+              "type": "chart",
+              "page_idx": 7,
+              "text_preview": "Figure 3: Learning Curves of different algorithms on our three benchmarks across 5 runs. The x-axis is the number of training epochs. The y-axis is the episodic reward (the first line), and max instantaneous constraint violation (the second",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\32bd83a3d20d750bbad73348c99f6a878b23cf6c525b911da6728301c99b9348.jpg",
+              "image_size": {
+                "width": 340,
+                "height": 504
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000201",
+              "type": "chart",
+              "page_idx": 20,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\fff827f734b600347188f6c71890e6cf7fcc68daa058c5ae2c26746f5a9fc119.jpg",
+              "image_size": {
+                "width": 454,
+                "height": 401
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000202",
+              "type": "chart",
+              "page_idx": 20,
+              "text_preview": "Figure 4: Distribution of power demand (left) and electricity price (right) in 24 hours.",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\c096a3063c96e6bb8e9b3b4d8a777f3c185edd2e080a852f80091d12d2848848.jpg",
+              "image_size": {
+                "width": 454,
+                "height": 404
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000223",
+              "type": "chart",
+              "page_idx": 21,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\654f83af2972087179be209dacde76fcf0001ed289c267f2f9b9dfe828bb84b7.jpg",
+              "image_size": {
+                "width": 320,
+                "height": 267
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000224",
+              "type": "chart",
+              "page_idx": 21,
+              "text_preview": "Figure 5: Comparison on RPO under different K.",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\5422b137e240e882b055ca3080d118cc3354c706eb60079b9ae5422876db2385.jpg",
+              "image_size": {
+                "width": 323,
+                "height": 262
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000229",
+              "type": "chart",
+              "page_idx": 22,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\aef5079f8c1ce3be1af7fc350a1bd274bf6838156a11559cdcd69cd3a281f14f.jpg",
+              "image_size": {
+                "width": 317,
+                "height": 268
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000230",
+              "type": "chart",
+              "page_idx": 22,
+              "text_preview": "Figure 6: Comparison between RPO with fixed penalty factor and adaptive penalty factor",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\b98f3bb7eb5e2aeb819eb8a8858e930b56cc8585698c0e62b7acee82953415b7.jpg",
+              "image_size": {
+                "width": 328,
+                "height": 268
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000235",
+              "type": "chart",
+              "page_idx": 22,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\51ca8bbd6b1080e1d2c5da0ceb264beffff5592be9d9b074dc1ee361818525e6.jpg",
+              "image_size": {
+                "width": 320,
+                "height": 270
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": "2211_reduced_policy_optimization_fo:000236",
+              "type": "chart",
+              "page_idx": 22,
+              "text_preview": "Figure 7: Comparison between RPO with partial gradient and complete gradient.",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\6f93ec6b2e0bdbda42e77fbb3200366b2eb00bcdb790fcf6ddc3aaf2f79b9583.jpg",
+              "image_size": {
+                "width": 325,
+                "height": 267
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\06d5399c22d9460eadaa63b9c44e5dccd96415f58a39f3f5edb7e0f1a950b4cf.jpg",
+              "image_size": {
+                "width": 515,
+                "height": 51
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\076def884b3d47c9915bd4bf873cc20b2ad228f14747d5d2ed3b765deab0e53b.jpg",
+              "image_size": {
+                "width": 562,
+                "height": 37
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\0bbffccf1f74d5184ac7073e3fcdd612d4d258e65c51760d36430e550a8a7fc6.jpg",
+              "image_size": {
+                "width": 1101,
+                "height": 331
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\1137c2c2e517b0d6335ae2dc19c78bbf48f578a4643775a5c5f9129a342cec11.jpg",
+              "image_size": {
+                "width": 212,
+                "height": 96
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\19cffeb7a60bd6bf393d26c54b4a5816266b542d642993ae47a82267e335a55f.jpg",
+              "image_size": {
+                "width": 1093,
+                "height": 498
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\211e73d23815c6d3a60f36bd69733e2093d36ffc66117e5e1f5f61314c64beb8.jpg",
+              "image_size": {
+                "width": 1042,
+                "height": 259
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\272f553563443c513ebbca37ceee7574e46073fe7aa6be5f9285ba508a2047ba.jpg",
+              "image_size": {
+                "width": 248,
+                "height": 42
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\27dda3331c3323a4479843a32d1a5f671a0a4dff3d11f262d73f288319c41901.jpg",
+              "image_size": {
+                "width": 739,
+                "height": 262
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\298e339324decf166c2baddf23b9727cabf1fac32abf7f149304d88c6b7dffaa.jpg",
+              "image_size": {
+                "width": 709,
+                "height": 110
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\329904c9c3dc8971fb21877586ab8ee65ceed4cfac26c3857fd897070262cf89.jpg",
+              "image_size": {
+                "width": 392,
+                "height": 73
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\346fdbb8f65047e384c4182f0972df29f5a02bb75d8616a99fa0b956b4cbc13b.jpg",
+              "image_size": {
+                "width": 659,
+                "height": 145
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\39e2cff04f6a2450f70cf23570ab60a68e24643c285ff47e777915c62fb72ae5.jpg",
+              "image_size": {
+                "width": 1090,
+                "height": 495
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\490bf53f96dcf343e6fb657f8941c9922b535e4cf8621b9c5a56411841246b30.jpg",
+              "image_size": {
+                "width": 859,
+                "height": 695
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\4a5eedcb430fde51963607ac10357ce6a4b26e284640c6729352d06f33cf70db.jpg",
+              "image_size": {
+                "width": 442,
+                "height": 70
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\511322f03a202a14a720963ba8bcfe9c88dbe81b04f7c3bec6752e0f22f8bf49.jpg",
+              "image_size": {
+                "width": 901,
+                "height": 43
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\5d03ff1323357c7f115818980248f8621717b4be9d76d085ecf32ca0f232c9fd.jpg",
+              "image_size": {
+                "width": 1090,
+                "height": 495
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\66b7b0147e133a24c64cd27344f0b62dd0eeeaf91ef4c9323176ef0e77762e28.jpg",
+              "image_size": {
+                "width": 526,
+                "height": 43
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\6b9423fe5feca7e90144ac342f88bcacd921ef09ee86c908e76e5cc84791ccad.jpg",
+              "image_size": {
+                "width": 440,
+                "height": 128
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\736b3d2bdc64e73af2f08cfa42dffb1b74bff0f3c4b2be379152a69a0048bdfd.jpg",
+              "image_size": {
+                "width": 876,
+                "height": 112
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\74fd9e9dd1bc9626fb92b9ba9c919cca9d0e3aa33737ac309a595ac48f270b63.jpg",
+              "image_size": {
+                "width": 659,
+                "height": 142
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\7a3fab36b8cb6354b863bfd3058ba893c75464fb909a7224a33717d3aa70e04d.jpg",
+              "image_size": {
+                "width": 1106,
+                "height": 184
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\7fd14537a781267cbdf155bbbf059939f019709394ec4ee443df31045a49ae74.jpg",
+              "image_size": {
+                "width": 418,
+                "height": 70
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\80f8f225d83a1e849bd6f81fc4ae790df416334ac32cd3df8f086f2f5fa02fb8.jpg",
+              "image_size": {
+                "width": 439,
+                "height": 98
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\8333538b85e06637917648d79e6fb5b9bac4804a03a1b76471fd1cc56588486c.jpg",
+              "image_size": {
+                "width": 434,
+                "height": 90
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\855cf1937e6954ca32215daae8dba04efa489ef4f8087ab614857f05934b2952.jpg",
+              "image_size": {
+                "width": 720,
+                "height": 39
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\88c0cdb286dc5c3ff416d458d2cba72ed4d32741c3fbc7b0073d24165f0c8fb2.jpg",
+              "image_size": {
+                "width": 176,
+                "height": 48
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\8f77a8d674ddfd62a1993b320386b7c39257c3718e36bb3f3179da3f66da9f68.jpg",
+              "image_size": {
+                "width": 359,
+                "height": 37
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\975752ecea99ae24ed78f73de19d31c392bd368eb71e2979f7801dc4319ba4bd.jpg",
+              "image_size": {
+                "width": 390,
+                "height": 70
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\9c5df4c982b50d5413cc33776e60ad98afa1a643efb22964de8054b499e98e64.jpg",
+              "image_size": {
+                "width": 412,
+                "height": 71
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\9ea4044eff3bb7a628f2888319a43345a2b8f0bc1d4c69dacb3ddcd62898d986.jpg",
+              "image_size": {
+                "width": 540,
+                "height": 34
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\a347078f02dd548460da1a21526a1eb19eaf7ce286a3d95b8e9b5cde4307ef91.jpg",
+              "image_size": {
+                "width": 351,
+                "height": 267
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\ad588dc482f880b4fbe8cbcffc9d260de4928a9162fec783382211d2c5381ac1.jpg",
+              "image_size": {
+                "width": 262,
+                "height": 179
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\b98c08eb9a0e9a9efdd6c3724dec7f29e3c6fbf6555cbb386dede35fb0165c31.jpg",
+              "image_size": {
+                "width": 365,
+                "height": 37
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\c7173bdf74148616aaa1d3219d06defed71a68d50eeee420a992916740ed84ee.jpg",
+              "image_size": {
+                "width": 382,
+                "height": 281
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\c93d59902b9306ebe3cbea3ae8ea3bb77619b3fc2e3be653c083773aa9542fc3.jpg",
+              "image_size": {
+                "width": 706,
+                "height": 384
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\ccfbfaa1d55b27c04c18e85b5082398ee59d2b8d877309f3e39175977363474e.jpg",
+              "image_size": {
+                "width": 454,
+                "height": 143
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\d8ac7f8087552c0848a59eba49a60e2cb229968bb63b5fcd672b3e7d30cd1855.jpg",
+              "image_size": {
+                "width": 457,
+                "height": 45
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\d97eaf0d74a0b4fc812946c6a4dbd916830a934407bb41f735a6498b656ee272.jpg",
+              "image_size": {
+                "width": 412,
+                "height": 70
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\dce5629ca0cc979df2e1ddfe7e9415cbbbe5520f79bbd4a8f74ab92438da7e19.jpg",
+              "image_size": {
+                "width": 717,
+                "height": 106
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\e9b0264253caa39e7dfbe8d7a1443e4ca7ad2d5bbc0d28d8a6ee57cf22316c72.jpg",
+              "image_size": {
+                "width": 554,
+                "height": 45
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\edb820a0d6728384686b8c917f0a11ce60161d9e2452f8ee5dd1bfc23d3b3e51.jpg",
+              "image_size": {
+                "width": 512,
+                "height": 40
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\f65bc8ee6a07f5021101ec8398cc4357d65df6ef203d8b6522c7453279e6c3c3.jpg",
+              "image_size": {
+                "width": 901,
+                "height": 42
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\f6e5e19206b6b309a6f912a2b81d952d0d2399f895b965563f54c86dced3116e.jpg",
+              "image_size": {
+                "width": 590,
+                "height": 234
+              }
+            },
+            {
+              "document": "2211_reduced_policy_optimization_fo",
+              "element_id": null,
+              "type": "manifest_image",
+              "page_idx": null,
+              "text_preview": "",
+              "media_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\2211_reduced_policy_optimization_fo\\auto\\images\\fbb1a76f3c1bacc122899c667d38cc4ee26a2be652b0c3959fc1f87724b271c0.jpg",
+              "image_size": {
+                "width": 895,
+                "height": 306
+              }
+            }
+          ]
+        },
+        "artifacts": [
+          "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\enhancements\\chart_candidates.json"
+        ],
+        "tool_calls": [
+          {
+            "tool": "chart_candidate_extractor",
+            "status": "called"
+          },
+          {
+            "tool": "external_chart_parser",
+            "status": "not_configured"
+          }
+        ],
+        "warnings": [
+          "未配置 DePlot/ChartOCR/VLM 图表解析后端，当前仅输出图表候选区域供后续工具消费。"
+        ]
+      },
+      {
+        "name": "cross_page_merge",
+        "status": "candidate_extracted",
+        "summary": "发现 1 个跨页表格候选和 58 个指代消解候选。",
+        "details": {
+          "multi_page_table_candidates": [
+            {
+              "type": "multi_page_table_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "pages": [
+                23,
+                24
+              ],
+              "element_ids": [
+                "2211_reduced_policy_optimization_fo:000245",
+                "2211_reduced_policy_optimization_fo:000251"
+              ],
+              "merge_reason": "相邻页面检测到连续表格元素，建议作为跨页表格候选复核。"
+            }
+          ],
+          "reference_resolution_candidates": [
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000005",
+              "source_page_idx": 0,
+              "source_text_preview": "Recent advances in constrained reinforcement learning (RL) have endowed reinforcement learning with certain safety guarantees. However, deploying existing constrained RL algorithms",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000003",
+              "candidate_target_page_idx": 0,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000007",
+              "source_page_idx": 0,
+              "source_text_preview": "The past few years have witnessed the significant success of reinforcement learning (RL) [41] in various fields such as mastering GO [38], robotic manipulations [20, 24], autonomou",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000006",
+              "candidate_target_page_idx": 0,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000010",
+              "source_page_idx": 1,
+              "source_text_preview": "Existing work on constrained RL can be divided into two categories. The first category involves treating constraints as implicit or soft constraints and using Safe RL algorithms [4",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000009",
+              "candidate_target_page_idx": 0,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000011",
+              "source_page_idx": 1,
+              "source_text_preview": "In the second category, the approaches treat the output of the policy network as a set of sub-optimal actions, correcting them to satisfy the constraints by adding an extra constra",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000009",
+              "candidate_target_page_idx": 0,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000012",
+              "source_page_idx": 1,
+              "source_text_preview": "To address the limitations of existing RL algorithms in handling hard constraints, we propose a constrained off-policy reinforcement learning algorithm called Reduced Policy Optimi",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000009",
+              "candidate_target_page_idx": 0,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000013",
+              "source_page_idx": 1,
+              "source_text_preview": "1) Reduced Policy Optimization. We present RPO, an innovative approach that introduces the GRG algorithm into off-policy RL algorithms. RPO treats the output of the policy network ",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000009",
+              "candidate_target_page_idx": 0,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000014",
+              "source_page_idx": 1,
+              "source_text_preview": "2) RL Benchmarks with Hard Constraints. We develop three benchmarks with hard constraints to validate the performance of our method, involving Safe CartPole, Spring Pendulum and Op",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000009",
+              "candidate_target_page_idx": 0,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000016",
+              "source_page_idx": 1,
+              "source_text_preview": "In this section, we first review the existing methods in the field of constrained RL and divide them into different types according to different constraints. We summarize the diffe",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000015",
+              "candidate_target_page_idx": 1,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000017",
+              "source_page_idx": 1,
+              "source_text_preview": "Soft-Constrainted RL. RL with soft constraints is well-studied and also known as safe reinforcement learning (Safe RL). One of the principal branches in Safe RL methods is based on",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000015",
+              "candidate_target_page_idx": 1,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000023",
+              "source_page_idx": 2,
+              "source_text_preview": "Markov Decision Process. A classical Markov decision process (MDP) [41] can be represented as a tuple (S, A, R, P, µ), where S is the state space, A is the action space, R : S × A ",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000022",
+              "candidate_target_page_idx": 2,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000033",
+              "source_page_idx": 3,
+              "source_text_preview": "Problem Formulation. Although simple explicit constraints in neural networks can be easily handled by some specific activation functions (e.g., the Softmax operator for probability",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000032",
+              "candidate_target_page_idx": 3,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000035",
+              "source_page_idx": 3,
+              "source_text_preview": "where fi and gj are the hard deterministic constraints that are only related to st and at in the current step, and they are required to be satisfied in all states for the policy. N",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000034",
+              "candidate_target_page_idx": 3,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000038",
+              "source_page_idx": 3,
+              "source_text_preview": "Recalling the nature of equality constraints, it can be viewed as the reduction of the freedom degree in actions. Hence, we follow the formulation in GRG method and divide actions ",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000037",
+              "candidate_target_page_idx": 3,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000039",
+              "source_page_idx": 3,
+              "source_text_preview": "Proposition 1. (Gradient Flow in Construction Stage) Assume that we have (n − m) equality constraints denoted as F (a; s) = 0 in each state s. Let aB ∈ Rm and a ∈ Rn be the basic a",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000037",
+              "candidate_target_page_idx": 3,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000047",
+              "source_page_idx": 4,
+              "source_text_preview": "After the construction stage, the initial actions denoted as a˜ may still fall out of a feasible region determined by inequality constraints. Hence, the principal difficulty here i",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000046",
+              "candidate_target_page_idx": 4,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000051",
+              "source_page_idx": 4,
+              "source_text_preview": "where ηa called projection step can be viewed as the learning rate of GRG update to control the step of update and ak denotes the actions a at the k-th update where a0 ≜ a˜. After ",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000050",
+              "candidate_target_page_idx": 4,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000054",
+              "source_page_idx": 5,
+              "source_text_preview": "The proof is referred to in supplementary materials. Theorem 1 indicates that the projection stage will not violate the linear equality constraints. With regard to nonlinear equali",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000053",
+              "candidate_target_page_idx": 5,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000058",
+              "source_page_idx": 5,
+              "source_text_preview": "Policy Loss with Modified Lagrangian Relaxation. While the above two-stage decision procedure can cope with the satisfaction of equality and inequality constraints, the policy netw",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000056",
+              "candidate_target_page_idx": 5,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000060",
+              "source_page_idx": 5,
+              "source_text_preview": "This means we need to deal with instantaneous inequality constraints in all states. Hence, we cannot apply the primal-dual update method directly like PDO [13]. Otherwise, we need ",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000059",
+              "candidate_target_page_idx": 5,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000068",
+              "source_page_idx": 6,
+              "source_text_preview": "where ηjν is the learning rate of j-th penalty factors, νjk is value of νj in the k-th step and νj0 = 0. Since the exact penalty term, Es∼π [max {0, gj(˜π(st); st)}], is always non",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000067",
+              "candidate_target_page_idx": 6,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000069",
+              "source_page_idx": 6,
+              "source_text_preview": "Off-policy RL Training. Since we augment the policy loss function with the exact penalty term, the actual objective of our algorithm is two-fold. One is to obtain the optimal polic",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000067",
+              "candidate_target_page_idx": 6,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000075",
+              "source_page_idx": 6,
+              "source_text_preview": "Specifically, our benchmarks are designed based on [12], with extra interfaces to return the information of the hard constraints. To the best of our knowledge, it is the first eval",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000074",
+              "candidate_target_page_idx": 6,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000076",
+              "source_page_idx": 6,
+              "source_text_preview": "1) Safe CartPole. Different from that standard CartPole environment in Gym [12], we control two forces from different directions in the Safe CartPole environment. The goal is to ke",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000074",
+              "candidate_target_page_idx": 6,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000077",
+              "source_page_idx": 6,
+              "source_text_preview": "2) Spring Pendulum. Motivated by the Pendulum environment [12], we construct a Spring Pendulum environment that replaces the pendulum with a light spring, which connects the fixed ",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000074",
+              "candidate_target_page_idx": 6,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000086",
+              "source_page_idx": 7,
+              "source_text_preview": "3) Optimal Power Flow with Battery Energy Storage. Optimal Power Flow (OPF) is a classical problem in smart grid operation to minimize the total cost of power generation with the s",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000084",
+              "candidate_target_page_idx": 7,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000092",
+              "source_page_idx": 8,
+              "source_text_preview": "Max Instantaneous Constraint Violation: maximum instantaneous violation of all constraints. It denotes the feasibility of actions in a state because the feasibility of actions reli",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000091",
+              "candidate_target_page_idx": 8,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000095",
+              "source_page_idx": 8,
+              "source_text_preview": "We plot the learning curves of CPO, CUP, Safety Layer, DDPG-L, SAC-L, RPO-DDPG, and RPO-SAC in Figure 3. Notably, to validate the importance of the two-stage decision procedure, he",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000094",
+              "candidate_target_page_idx": 8,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000096",
+              "source_page_idx": 8,
+              "source_text_preview": "Besides the learning curves, Table 2 shows the performance of different algorithms after convergence. To present more details on the constraint violations, here the equality and in",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000094",
+              "candidate_target_page_idx": 8,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000098",
+              "source_page_idx": 8,
+              "source_text_preview": "We acknowledge that there still exist some limitations in RPO. One is that RPO is time-consuming compared to standard neural networks due to the projection stage, where the GRG upd",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000097",
+              "candidate_target_page_idx": 8,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000101",
+              "source_page_idx": 9,
+              "source_text_preview": "In this paper, we outlined a novel algorithm called RPO to handle general hard constraints under the off-policy reinforcement learning framework. RPO consists of two stages, the co",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000100",
+              "candidate_target_page_idx": 9,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000103",
+              "source_page_idx": 9,
+              "source_text_preview": "This work was supported by NSFC (No.62303319), Shanghai Sailing Program (22YF1428800, 21YF1429400), Shanghai Local College Capacity Building Program (23010503100), Shanghai Frontie",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000102",
+              "candidate_target_page_idx": 9,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000115",
+              "source_page_idx": 13,
+              "source_text_preview": "Proposition 1. (Gradient Flow in Construction Stage) Assume that we have (n − m) equality constraints denoted as F (a; s) = 0 in each state s. Let aB ∈ Rm and a ∈ Rn be the basic a",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000114",
+              "candidate_target_page_idx": 13,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000147",
+              "source_page_idx": 15,
+              "source_text_preview": "Assume that the inequality constraint that needs to be satisfied is g(a; s) ≤ 0. For a given action ak that does not satisfy the inequality constraint after k updates, i.e., g (ak)",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000146",
+              "candidate_target_page_idx": 15,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000150",
+              "source_page_idx": 15,
+              "source_text_preview": "Obviously, to ensure the satisfaction of the inequality constraint, i.e., g(ak+1) ≤ 0, we must limit the projection step with ηa ≥ 1/(2cT c). However, ηa is often a sufficiently sm",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000146",
+              "candidate_target_page_idx": 15,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000159",
+              "source_page_idx": 16,
+              "source_text_preview": "In this section, we will illustrate the dynamics of our three benchmarks in detail.",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000158",
+              "candidate_target_page_idx": 16,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000165",
+              "source_page_idx": 17,
+              "source_text_preview": "Action. The action space |A| ∈ R2 of Safe CartPole is the sign and magnitude of two forces f1, f2 from different directions. Specifically, one force is inclined 30 degrees below th",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000162",
+              "candidate_target_page_idx": 16,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000166",
+              "source_page_idx": 17,
+              "source_text_preview": "Reward. The goal of Safe CartPole is similar to the CartPole in Gym [12], which requires the pole to keep upright as long as possible. Therefore, we employ the same reward policy t",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000162",
+              "candidate_target_page_idx": 16,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000167",
+              "source_page_idx": 17,
+              "source_text_preview": "Equality Constraints. The equality constraint of Safe CartPole is that the summation of two forces in y axis should be zero. That is, we desire to avoid extra friction on the cart,",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000162",
+              "candidate_target_page_idx": 16,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000169",
+              "source_page_idx": 17,
+              "source_text_preview": "Inequality Constraints. The inequality constraint is that the summation of two forces in the x axis should be bounded by a box constraint, which indicates the physical limitation o",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000168",
+              "candidate_target_page_idx": 17,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000178",
+              "source_page_idx": 18,
+              "source_text_preview": "Action. The action space |A| ∈ R2 of Spring Pendulum is the sign and magnitude of two forces fx, fy in the x, y axes. Notably, since the spring pendulum is rotating, the angle betw",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000177",
+              "candidate_target_page_idx": 18,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000179",
+              "source_page_idx": 18,
+              "source_text_preview": "Reward. The goal of Spring Pendulum is to keep the spring pendulum in an upright position. The episode will never be done until the maximum time step. Specifically, the reward func",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000177",
+              "candidate_target_page_idx": 18,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000185",
+              "source_page_idx": 18,
+              "source_text_preview": "Furthermore, to connect each component mentioned above, we derive the dynamics of the Spring Pendulum. Applying Euler-Lagrange Equation L = T − V to spring pendulum, then we obtain",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000184",
+              "candidate_target_page_idx": 18,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000198",
+              "source_page_idx": 19,
+              "source_text_preview": "The additional variables pb ∈ Rn is the charging (positive) or discharging (negative) power of the battery groups, and c(t) represents the cost or the income in the time step t. Ex",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000197",
+              "candidate_target_page_idx": 19,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000199",
+              "source_page_idx": 19,
+              "source_text_preview": "Specifically, this benchmark is based on a 14-node power system, which is available in the PYPOWER package. We adopt the same topology of the electricity grid with 5 generator node",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000197",
+              "candidate_target_page_idx": 19,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000212",
+              "source_page_idx": 20,
+              "source_text_preview": "Implementation of Construction Stage. Unlike previous robotic manipulation cases, OPF with Battery Energy Storage environment has nonlinear equality constraints. This means the ana",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000211",
+              "candidate_target_page_idx": 20,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000222",
+              "source_page_idx": 21,
+              "source_text_preview": "The projection stage performs the GRG updates until all inequality constraints are satisfied. It is valuable to investigate the impact of the number of maximum GRG updates K on mod",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000221",
+              "candidate_target_page_idx": 21,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000225",
+              "source_page_idx": 21,
+              "source_text_preview": "choice of K does not have an obvious impact on the episodic reward when K is not too large. The slight improvement in constraint violation between K = 10 and K = 50 illustrates tha",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000224",
+              "candidate_target_page_idx": 21,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000228",
+              "source_page_idx": 22,
+              "source_text_preview": "Besides, We conduct experiments to confirm the performance of the adaptive penalty factor with dual update compared to that of the fixed penalty factor as introduced in Section 4. ",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000227",
+              "candidate_target_page_idx": 22,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000233",
+              "source_page_idx": 22,
+              "source_text_preview": "As we illustrate in the construction stage, the integrated actions are actually determined once the basic actions are given. Therefore, it is possible for the value network to appr",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000232",
+              "candidate_target_page_idx": 22,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000234",
+              "source_page_idx": 22,
+              "source_text_preview": "To explore the necessity of the backpropagation with generalized reduced gradient, we also contrast the performance in RPOSAC trained with/without the complete gradient. Concretely",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000232",
+              "candidate_target_page_idx": 22,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000239",
+              "source_page_idx": 22,
+              "source_text_preview": "The training time comparison in our three benchmarks is shown in Tables 3. It can be observed that the training time of RPO-DDPG and RPO-SAC grows linearly with the number of const",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000238",
+              "candidate_target_page_idx": 22,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000247",
+              "source_page_idx": 23,
+              "source_text_preview": "While it is usually not difficult to divide actions into basic and nonbasic actions, we present the systematical action division method below to further show the generality of our ",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000246",
+              "candidate_target_page_idx": 23,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000255",
+              "source_page_idx": 24,
+              "source_text_preview": "equality constraint can be represented by another two constraints. Hence, we can delete this redundant constraint and the new equality constraints are A˜ + ˜b = 0, where",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000253",
+              "candidate_target_page_idx": 24,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000259",
+              "source_page_idx": 24,
+              "source_text_preview": "divided as nonbasic actions. Therefore, after removing the redundant equality constraints, we need to choose actions that correspond to the maximal linearly independent column vect",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000257",
+              "candidate_target_page_idx": 24,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000260",
+              "source_page_idx": 24,
+              "source_text_preview": "Nonlinear. In the nonlinear case, the systematical way that divides the full action into the basic and nonbasic actions is principally to ensure the solvability of the equality equ",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000257",
+              "candidate_target_page_idx": 24,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000263",
+              "source_page_idx": 25,
+              "source_text_preview": "For example, if we have 3 equality constraints on action a ∈ R4 like that",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000261",
+              "candidate_target_page_idx": 24,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000267",
+              "source_page_idx": 25,
+              "source_text_preview": "Now, we need to choose the nonbasic actions that cover the equality constraints as many as possible. This is the maximal matching problem in the bipartite graph, where constraints ",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000265",
+              "candidate_target_page_idx": 25,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            },
+            {
+              "type": "reference_resolution_candidate",
+              "document": "2211_reduced_policy_optimization_fo",
+              "source_element_id": "2211_reduced_policy_optimization_fo:000270",
+              "source_page_idx": 25,
+              "source_text_preview": "a small perturbation on the current action point or J F to make J F invertible. This is a useful trick in classical control methods. However, this situation is seldom seen in pract",
+              "candidate_target_element_id": "2211_reduced_policy_optimization_fo:000269",
+              "candidate_target_page_idx": 25,
+              "reason": "文本包含跨句或跨页指代词，建议结合上下文复核。"
+            }
+          ],
+          "scanned_chunk_count": 272
+        },
+        "artifacts": [
+          "D:\\vscodepro\\MinerU\\agent_data\\jobs\\34d2004785ed4f188517bcfa073d7316\\output\\enhancements\\cross_page_objects.json"
+        ],
+        "tool_calls": [
+          {
+            "tool": "rule_based_cross_page_analyzer",
+            "status": "called"
+          }
+        ],
+        "warnings": []
+      }
+    ]
+  }
+}

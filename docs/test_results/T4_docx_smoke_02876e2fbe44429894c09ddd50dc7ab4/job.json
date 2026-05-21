@@ -1,0 +1,296 @@
+{
+  "job_id": "02876e2fbe44429894c09ddd50dc7ab4",
+  "status": "succeeded",
+  "created_at": "2026-05-21T04:14:06.666444Z",
+  "updated_at": "2026-05-21T04:14:32.180924Z",
+  "input_filename": "1.docx",
+  "input_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\input\\1.docx",
+  "output_dir": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output",
+  "options": {
+    "backend": "pipeline",
+    "method": "auto",
+    "lang": "ch",
+    "formula": true,
+    "table": true,
+    "image_analysis": true,
+    "model_source": "modelscope",
+    "use_llm": false,
+    "api_url": null,
+    "server_url": null,
+    "start_page": 0,
+    "end_page": null
+  },
+  "logs": [
+    {
+      "time": "2026-05-21T04:14:06.694593Z",
+      "stage": "understand",
+      "level": "info",
+      "message": "Task received and input validation completed.",
+      "details": {
+        "filename": "1.docx",
+        "input_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\input\\1.docx"
+      }
+    },
+    {
+      "time": "2026-05-21T04:14:06.706413Z",
+      "stage": "plan",
+      "level": "info",
+      "message": "Execution plan generated.",
+      "details": {
+        "plan": {
+          "goal": "Parse 1.docx into Markdown and normalized structured JSON chunks.",
+          "steps": [
+            "Validate input type and create a task workspace.",
+            "Call MinerU with the selected backend and parsing options.",
+            "Collect Markdown, content_list, middle_json, images, and metadata.",
+            "Normalize parsed elements into JSONL chunks.",
+            "Verify output completeness and generate a reproducible processing log."
+          ],
+          "risk_controls": [
+            "Keep original MinerU outputs for auditability.",
+            "Return file paths and element counts for downstream validation.",
+            "Surface parser warnings in task logs."
+          ]
+        }
+      }
+    },
+    {
+      "time": "2026-05-21T04:14:06.720211Z",
+      "stage": "execute",
+      "level": "info",
+      "message": "Calling the MinerU structured parsing module.",
+      "details": {
+        "command": [
+          "D:\\vscodepro\\MinerU\\.venv_mineru\\Scripts\\mineru.exe",
+          "-p",
+          "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\input\\1.docx",
+          "-o",
+          "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output",
+          "-b",
+          "pipeline",
+          "-m",
+          "auto",
+          "-l",
+          "ch",
+          "-f",
+          "true",
+          "-t",
+          "true",
+          "--image-analysis",
+          "true",
+          "--start",
+          "0"
+        ]
+      }
+    },
+    {
+      "time": "2026-05-21T04:14:32.093578Z",
+      "stage": "execute",
+      "level": "info",
+      "message": "MinerU execution finished.",
+      "details": {
+        "returncode": 0,
+        "output_tail": "2026-05-21 12:14:13.003 | INFO     | mineru.cli.client:run_orchestrated_cli:877 - Started local mineru-api at http://127.0.0.1:24419\n2026-05-21 12:14:18.568 | INFO     | __main__:create_app:233 - Request concurrency limited to 3\nINFO:     Started server process [23792]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:24419 (Press CTRL+C to quit)\n2026-05-21 12:14:19.139 | INFO     | mineru.cli.client:run_planned_task:773 - Submitting batch 1/1 | 1 document, 1 page in this batch | 1 page total | task#1 [1]\n2026-05-21 12:14:19.294 | WARNING  | mineru.cli.common:do_parse:659 - No valid PDF or image files to process.\n2026-05-21 12:14:20.336 | INFO     | mineru.cli.client:run_planned_task:809 - Completed batch 1/1 | Processed 1/1 page | 1 of 1 batch finished | task#1 [1]\n2026-05-21 12:14:20.826 | WARNING  | mineru.cli.client:log_visualization_future_result:390 - Skipping visualization for 1: missing origin.pdf: 1_origin.pdf\n"
+      }
+    },
+    {
+      "time": "2026-05-21T04:14:32.111739Z",
+      "stage": "structure",
+      "level": "info",
+      "message": "Aggregating Markdown, JSON, and element-level JSONL outputs.",
+      "details": {}
+    },
+    {
+      "time": "2026-05-21T04:14:32.150475Z",
+      "stage": "structure",
+      "level": "info",
+      "message": "Structured outputs generated.",
+      "details": {
+        "manifest_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output\\structured_manifest.json",
+        "chunks_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output\\structured_chunks.jsonl",
+        "summary": {
+          "documents": 1,
+          "chunks": 4
+        }
+      }
+    },
+    {
+      "time": "2026-05-21T04:14:32.167567Z",
+      "stage": "verify",
+      "level": "info",
+      "message": "Quality review completed.",
+      "details": {
+        "quality_report": {
+          "verdict": "pass",
+          "checks": [
+            {
+              "name": "document_count",
+              "status": "pass",
+              "message": "1 parsed document(s) found."
+            },
+            {
+              "name": "chunk_count",
+              "status": "pass",
+              "message": "4 structured chunk(s) generated."
+            }
+          ],
+          "suggestions": []
+        }
+      }
+    }
+  ],
+  "result": {
+    "job_id": "02876e2fbe44429894c09ddd50dc7ab4",
+    "status": "succeeded",
+    "plan": {
+      "goal": "Parse 1.docx into Markdown and normalized structured JSON chunks.",
+      "steps": [
+        "Validate input type and create a task workspace.",
+        "Call MinerU with the selected backend and parsing options.",
+        "Collect Markdown, content_list, middle_json, images, and metadata.",
+        "Normalize parsed elements into JSONL chunks.",
+        "Verify output completeness and generate a reproducible processing log."
+      ],
+      "risk_controls": [
+        "Keep original MinerU outputs for auditability.",
+        "Return file paths and element counts for downstream validation.",
+        "Surface parser warnings in task logs."
+      ]
+    },
+    "quality_report": {
+      "verdict": "pass",
+      "checks": [
+        {
+          "name": "document_count",
+          "status": "pass",
+          "message": "1 parsed document(s) found."
+        },
+        {
+          "name": "chunk_count",
+          "status": "pass",
+          "message": "4 structured chunk(s) generated."
+        }
+      ],
+      "suggestions": []
+    },
+    "manifest_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output\\structured_manifest.json",
+    "chunks_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output\\structured_chunks.jsonl",
+    "manifest": {
+      "generated_at": "2026-05-21T04:14:32.117949+00:00",
+      "input": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\input\\1.docx",
+      "output_dir": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output",
+      "mineru_command": [
+        "D:\\vscodepro\\MinerU\\.venv_mineru\\Scripts\\mineru.exe",
+        "-p",
+        "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\input\\1.docx",
+        "-o",
+        "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output",
+        "-b",
+        "pipeline",
+        "-m",
+        "auto",
+        "-l",
+        "ch",
+        "-f",
+        "true",
+        "-t",
+        "true",
+        "--image-analysis",
+        "true",
+        "--start",
+        "0"
+      ],
+      "backend": "pipeline",
+      "method": "auto",
+      "lang": "ch",
+      "documents": [
+        {
+          "document": "1",
+          "parse_dir": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output\\1\\office",
+          "markdown_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output\\1\\office\\1.md",
+          "content_list_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output\\1\\office\\1_content_list.json",
+          "content_list_v2_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output\\1\\office\\1_content_list_v2.json",
+          "middle_json_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output\\1\\office\\1_middle.json",
+          "model_json_path": "D:\\vscodepro\\MinerU\\agent_data\\jobs\\02876e2fbe44429894c09ddd50dc7ab4\\output\\1\\office\\1_model.json",
+          "images": [],
+          "summary": {
+            "elements": 4,
+            "by_type": {
+              "text": 4
+            },
+            "text_elements": 4,
+            "media_elements": 0
+          },
+          "markdown_preview": "Distribution network topology control using attention mechanism-based deep reinforcement learning\n\nAbstract\n\n随着以风能、太阳能为主的分布式能源不断并入电网，其自动控制和管理已成为一项非常复杂的任务，需要寻求更加智能的控制技术。本文提出了一种结合注意力机制的深度强化学习方法SAC（Soft Actor-Critic）来管理电网。该方法通过调整电网的拓扑结构，改变变电站的线路连接和母线分布，使其能够高效地传输电力。并且通过分配不同的特征权重，注意力机制使得神经网络能够从大量的网格输入特征状态中关注到与当前目标任务更相关的输入，从而增强了模型的鲁棒性和计算效率。\n\n电网的互联结构可以通过拓扑结构来可视化。拓扑是一种典型的图形结构，它将电网的组成部分，如发电机、变电站、负荷等抽象成节点。并将连接这些节点的电力线画成线。          ，"
+        }
+      ],
+      "summary": {
+        "documents": 1,
+        "chunks": 4
+      }
+    },
+    "chunks_preview": [
+      {
+        "document": "1",
+        "element_id": "1:000000",
+        "element_index": 0,
+        "type": "text",
+        "page_idx": 0,
+        "text": "Distribution network topology control using attention mechanism-based deep reinforcement learning",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "Distribution network topology control using attention mechanism-based deep reinforcement learning",
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "1",
+        "element_id": "1:000001",
+        "element_index": 1,
+        "type": "text",
+        "page_idx": 0,
+        "text": "Abstract",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "Abstract",
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "1",
+        "element_id": "1:000002",
+        "element_index": 2,
+        "type": "text",
+        "page_idx": 0,
+        "text": "随着以风能、太阳能为主的分布式能源不断并入电网，其自动控制和管理已成为一项非常复杂的任务，需要寻求更加智能的控制技术。本文提出了一种结合注意力机制的深度强化学习方法SAC（Soft Actor-Critic）来管理电网。该方法通过调整电网的拓扑结构，改变变电站的线路连接和母线分布，使其能够高效地传输电力。并且通过分配不同的特征权重，注意力机制使得神经网络能够从大量的网格输入特征状态中关注到与当前目标任务更相关的输入，从而增强了模型的鲁棒性和计算效率。",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "随着以风能、太阳能为主的分布式能源不断并入电网，其自动控制和管理已成为一项非常复杂的任务，需要寻求更加智能的控制技术。本文提出了一种结合注意力机制的深度强化学习方法SAC（Soft Actor-Critic）来管理电网。该方法通过调整电网的拓扑结构，改变变电站的线路连接和母线分布，使其能够高效地传输电力。并且通过分配不同的特征权重，注意力机制使得神经网络能够从大量的网格输入特征状态中关注到与当前目标任务更相关的输入，从而增强了模型的鲁棒性和计算效率。",
+          "page_idx": 0
+        }
+      },
+      {
+        "document": "1",
+        "element_id": "1:000003",
+        "element_index": 3,
+        "type": "text",
+        "page_idx": 0,
+        "text": "电网的互联结构可以通过拓扑结构来可视化。拓扑是一种典型的图形结构，它将电网的组成部分，如发电机、变电站、负荷等抽象成节点。并将连接这些节点的电力线画成线。          ，",
+        "bbox": null,
+        "media_path": null,
+        "raw": {
+          "type": "text",
+          "text": "电网的互联结构可以通过拓扑结构来可视化。拓扑是一种典型的图形结构，它将电网的组成部分，如发电机、变电站、负荷等抽象成节点。并将连接这些节点的电力线画成线。          ，",
+          "page_idx": 0
+        }
+      }
+    ]
+  },
+  "error": null
+}
